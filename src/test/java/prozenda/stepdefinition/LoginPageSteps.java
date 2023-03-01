@@ -2,6 +2,7 @@ package prozenda.stepdefinition;
 
 import com.prozenda.pages.Pages;
 import io.cucumber.java.en.Given;
+import org.junit.Assert;
 
 public class LoginPageSteps {
 
