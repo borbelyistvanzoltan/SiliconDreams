@@ -18,4 +18,9 @@ public class LoginPageSteps {
     public void login() {
         pages.getLoginPagePOM().login();
     }
+
+    @Then("login with email and password, invalid credentials")
+    public void loginNegative() {
+        pages.getLoginPagePOM().loginNegative();
+    }
 }

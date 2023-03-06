@@ -17,4 +17,12 @@ public class LoginPagePOM extends AbstractPage {
 
         waitUntil(ExpectedConditions.visibilityOfElementLocated(MainPage.favoriteButton));
     }
+
+    public void loginNegative() {
+        getDriver().findElement(LoginPage.email).sendKeys("istvan.borbely@prozenda.com");
+        getDriver().findElement(LoginPage.password).sendKeys("Prozenda2023");
+        getDriver().findElement(LoginPage.loginButton).click();
+
+        waitUntil(ExpectedConditions.visibilityOfElementLocated(LoginPage.incorrectLoginAlertMessage));
+    }
 }
