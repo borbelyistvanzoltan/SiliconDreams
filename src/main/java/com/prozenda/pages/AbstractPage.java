@@ -3,7 +3,6 @@ package com.prozenda.pages;
 
 import com.prozenda.drivermanager.DriverManager;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -26,7 +25,7 @@ public class AbstractPage {
         }
     }
 
-    public static void waitUntil(ExpectedCondition<WebElement> condition, Duration timeout) {
+    public static void waitUntil(ExpectedCondition<WebElement> condition) {
         try {
             WebDriverWait wait = new WebDriverWait(getDriver(), timeout);
             wait.until(condition);
