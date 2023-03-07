@@ -12,4 +12,9 @@ public class MainPageSteps {
     public void navigateToLogsPage() {
         pages.getMainPagePOM().navigateToLogsPage();
     }
+
+    @Then("navigate to Notification settings page")
+    public void navigateToNotificationsSettingsPage() {
+        pages.getMainPagePOM().navigateToNotificationsSettingsPage();
+    }
 }
