@@ -4,6 +4,6 @@ import org.openqa.selenium.By;
 
 public class LogsPage {
 
-    public static final By logsButton = By.cssSelector(".kt-subheader__breadcrumbs-link");
+    public static final By logTable = By.id("log-table");
 
 }

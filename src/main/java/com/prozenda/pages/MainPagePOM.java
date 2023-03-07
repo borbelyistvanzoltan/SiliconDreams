@@ -10,6 +10,6 @@ public class MainPagePOM extends AbstractPage {
         getDriver().findElement(MainPage.settingsButton).click();
         getDriver().findElement(MainPage.logsButton).click();
 
-        waitUntil(ExpectedConditions.visibilityOfElementLocated(LogsPage.logsButton));
+        waitUntil(ExpectedConditions.visibilityOfElementLocated(LogsPage.logTable));
     }
 }
