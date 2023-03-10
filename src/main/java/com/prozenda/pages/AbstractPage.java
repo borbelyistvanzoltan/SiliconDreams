@@ -12,7 +12,8 @@ import java.time.Duration;
 
 public class AbstractPage {
 
-    public static final Duration timeout = Duration.ofSeconds(5);
+    public static final Duration timeout = Duration.ofSeconds(15);
+    public WebDriverWait wait = new WebDriverWait(getDriver(), timeout);
 
     public static WebDriver getDriver() {
 
@@ -25,7 +26,7 @@ public class AbstractPage {
         }
     }
 
-    public static void waitUntil(ExpectedCondition<WebElement> condition) {
+    public static void waitUntil(ExpectedCondition condition) {
         try {
             WebDriverWait wait = new WebDriverWait(getDriver(), timeout);
             wait.until(condition);
