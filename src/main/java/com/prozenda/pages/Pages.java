@@ -5,6 +5,7 @@ public class Pages {
     private LoginPagePOM loginPagePOM;
     private MainPagePOM mainPagePOM;
     private LogsPagePOM logsPagePOM;
+    private GeneralPagePOM generalPagePOM;
 
     public LoginPagePOM getLoginPagePOM(){
         if ( loginPagePOM == null ){
@@ -28,5 +29,13 @@ public class Pages {
         }
 
         return logsPagePOM;
+    }
+
+    public GeneralPagePOM getGeneralPagePOM(){
+        if ( generalPagePOM == null ){
+            generalPagePOM = new GeneralPagePOM();
+        }
+
+        return generalPagePOM;
     }
 }

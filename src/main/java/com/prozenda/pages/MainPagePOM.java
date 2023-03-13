@@ -1,5 +1,6 @@
 package com.prozenda.pages;
 
+import com.prozenda.selectors.GeneralPage;
 import com.prozenda.selectors.LogsPage;
 import com.prozenda.selectors.MainPage;
 import com.prozenda.selectors.NotificationSettingsPage;
@@ -19,5 +20,12 @@ public class MainPagePOM extends AbstractPage {
         getDriver().findElement(MainPage.notificationSettingsButton).click();
 
         waitUntil(ExpectedConditions.visibilityOfElementLocated(NotificationSettingsPage.tabList));
+    }
+
+    public void navigateToSettingsGeneralPage() {
+        getDriver().findElement(MainPage.settingsButton).click();
+        getDriver().findElement(MainPage.generalButton).click();
+
+        waitUntil(ExpectedConditions.visibilityOfElementLocated(GeneralPage.table));
     }
 }

@@ -8,5 +8,6 @@ public class MainPage {
     public static final By settingsButton = By.xpath("//span[text()='Beállítások']");
     public static final By logsButton = By.xpath("//span[text()='Napló']");
     public static final By notificationSettingsButton = By.xpath("//span[text()='Értesítési központ']");
+    public static final By generalButton = By.cssSelector(".kt-menu__content > li:nth-child(2) > ul:nth-child(2) > li:nth-child(1) > a:nth-child(1)");
 
 }
