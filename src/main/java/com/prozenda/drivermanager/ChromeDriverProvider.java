@@ -2,6 +2,7 @@ package com.prozenda.drivermanager;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ChromeDriverProvider implements DriverProvider{
 
@@ -9,7 +10,9 @@ public class ChromeDriverProvider implements DriverProvider{
 
     public WebDriver getDriver() {
         if(driver == null) {
-            driver = WebDriverManager.chromedriver().create();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--remote-allow-origins=*");
+            driver = WebDriverManager.chromedriver().capabilities(options).create();
         }
 
         return driver;
