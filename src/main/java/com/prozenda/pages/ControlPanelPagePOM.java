@@ -18,4 +18,20 @@ public class ControlPanelPagePOM extends AbstractPage {
     public void clickOnAddresses() {
         getDriver().findElement(addressesTab).click();
     }
+
+    public void clickProductsToggle() {
+        getDriver().findElement(productToggle).click();
+    }
+
+    public void clickNewProductButton() {
+        getDriver().findElement(newProductButton).click();
+    }
+
+    public void clickAllProductsButton() {
+        getDriver().findElement(allProductsButton).click();
+    }
+
+    public void clickBackToAllProductsListButton() {
+        getDriver().findElement(backToAllProductsListButton).click();
+    }
 }

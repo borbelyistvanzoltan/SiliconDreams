@@ -8,6 +8,8 @@ public class Pages {
     private MainPagePOM mainPagePOM;
     private LogsPagePOM logsPagePOM;
     private GeneralPagePOM generalPagePOM;
+    private NewProductPagePOM newProductPagePOM;
+    private ProductsPagePOM productsPagePOM;
 
     public LoginPagePOM getLoginPagePOM() {
         if (loginPagePOM == null){
@@ -50,10 +52,26 @@ public class Pages {
     }
 
     public GeneralPagePOM getGeneralPagePOM(){
-        if ( generalPagePOM == null ){
+        if (generalPagePOM == null){
             generalPagePOM = new GeneralPagePOM();
         }
 
         return generalPagePOM;
+    }
+
+    public NewProductPagePOM getNewProductPagePOM() {
+        if (newProductPagePOM == null){
+            newProductPagePOM = new NewProductPagePOM();
+        }
+
+        return newProductPagePOM;
+    }
+
+    public ProductsPagePOM getProductsPagePOM() {
+        if (productsPagePOM == null){
+            productsPagePOM = new ProductsPagePOM();
+        }
+
+        return productsPagePOM;
     }
 }

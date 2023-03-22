@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 
 public class CompanyDetailsAddressesPage {
 
+    private CompanyDetailsAddressesPage() {}
+
     public static final By newButton = By.xpath("/html/body/div[3]/div/div[2]/div[1]/div/div[2]/div/form/div/div[2]/div/div/div/fieldset/div/div[3]/div/a");
     public static final By postalCode = By.name("addresses[new][0][iranyitoszam]");
     public static final By city = By.name("addresses[new][0][telepules]");

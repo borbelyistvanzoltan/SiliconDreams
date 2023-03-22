@@ -1,9 +1,9 @@
 package prozenda.stepdefinition;
 
+import com.prozenda.pages.NewProductPagePOM;
 import com.prozenda.pages.Pages;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.junit.Assert;
 
 public class LoginPageSteps {
 
@@ -22,5 +22,21 @@ public class LoginPageSteps {
     @Then("login with email and password, invalid credentials")
     public void loginNegative() {
         pages.getLoginPagePOM().loginNegative();
+    }
+
+    @Then("navigate to New Product page")
+    public void navigateToNewProductPage() {
+        pages.getControlPanelPagePOM().clickProductsToggle();
+        pages.getControlPanelPagePOM().clickNewProductButton();
+    }
+
+    @Then("navigate to All Products page")
+    public void navigateToAllProductsPage() {
+        pages.getControlPanelPagePOM().clickAllProductsButton();
+    }
+
+    @Then("navigate back to All Products page")
+    public void navigateBackToAllProductsPage() {
+        pages.getControlPanelPagePOM().clickBackToAllProductsListButton();
     }
 }
