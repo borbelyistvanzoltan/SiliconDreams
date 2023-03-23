@@ -2,6 +2,8 @@ package prozenda.stepdefinition;
 
 import com.prozenda.Bench;
 import com.prozenda.drivermanager.DriverManager;
+import com.prozenda.pages.Pages;
+import com.prozenda.pages.ProductsPagePOM;
 import io.cucumber.java.*;
 import io.qameta.allure.Allure;
 import org.openqa.selenium.OutputType;
@@ -10,6 +12,7 @@ import java.io.ByteArrayInputStream;
 
 public class Steps {
     private static Bench bench;
+    private final static Pages pages = new Pages();
 
     @Before
     public static void setup() {
@@ -35,12 +38,16 @@ public class Steps {
         }
     }
 
-    /*
     @BeforeAll
     @AfterAll
     public static void afterClear() throws InterruptedException {
         setup();
+        pages.getLoginPagePOM().navigate();
+        pages.getLoginPagePOM().login();
+        pages.getProductsPagePOM().navigate();
+        pages.getProductsPagePOM().filterProduct("ProzendaTermek1", ProductsPagePOM.FilterColumn.valueOf("TITLE").getFilterColumnElement());
+        pages.getProductsPagePOM().clickDeleteButton();
+        pages.getProductsPagePOM().clickAcceptDelete();
         tearDown();
     }
-     */
 }

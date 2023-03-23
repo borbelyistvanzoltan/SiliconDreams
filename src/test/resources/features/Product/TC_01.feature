@@ -10,5 +10,4 @@ Feature: Product
     Then navigate back to All Products page
     Then filter "ProzendaTermek1" on "TITLE" column filter
     Then check "ProzendaTermek1" product created
-
     Then delete created products
