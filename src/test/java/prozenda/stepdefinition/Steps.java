@@ -45,7 +45,7 @@ public class Steps {
         pages.getLoginPagePOM().navigate();
         pages.getLoginPagePOM().login();
         pages.getProductsPagePOM().navigate();
-        pages.getProductsPagePOM().filterProduct("ProzendaTermek1", ProductsPagePOM.FilterColumn.valueOf("TITLE").getFilterColumnElement());
+        pages.getProductsPagePOM().filterProduct("Prozenda", ProductsPagePOM.FilterColumn.valueOf("TITLE").getFilterColumnElement());
         pages.getProductsPagePOM().clickDeleteButton();
         pages.getProductsPagePOM().clickAcceptDelete();
         tearDown();
