@@ -22,6 +22,10 @@ public class ProductsPagePOM extends AbstractPage {
         }
     }
 
+    public void navigate() {
+        getDriver().navigate().to("https://test.d4s.hu/products");
+    }
+
     public void filterProduct(String keyword, By column) {
         waitUntil(ExpectedConditions.visibilityOfElementLocated(column));
         getDriver().findElement(column).sendKeys(keyword);
@@ -32,7 +36,6 @@ public class ProductsPagePOM extends AbstractPage {
     }
 
     public void clickDeleteButton() {
-//        waitUntil(ExpectedConditions.elementToBeClickable(allDeleteButton));
         getDriver().findElement(allDeleteButton).click();
     }
 

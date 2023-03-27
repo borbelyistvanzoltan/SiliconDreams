@@ -53,7 +53,7 @@ public class NewProductPagePOM extends AbstractPage {
     }
 
     public void saveProduct() throws InterruptedException {
-        wait(2000);
+        wait(3000);
         getDriver().findElement(saveButton).click();
     }
 }

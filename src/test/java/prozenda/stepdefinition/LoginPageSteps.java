@@ -32,6 +32,7 @@ public class LoginPageSteps {
 
     @Then("navigate to All Products page")
     public void navigateToAllProductsPage() {
+        pages.getControlPanelPagePOM().clickProductsToggle();
         pages.getControlPanelPagePOM().clickAllProductsButton();
     }
 

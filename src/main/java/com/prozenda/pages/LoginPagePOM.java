@@ -4,6 +4,8 @@ import com.prozenda.selectors.LoginPage;
 import com.prozenda.selectors.MainPage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import static com.prozenda.selectors.LoginPage.*;
+
 public class LoginPagePOM extends AbstractPage {
 
     public void navigate() {
@@ -11,17 +13,18 @@ public class LoginPagePOM extends AbstractPage {
     }
 
     public void login() {
-        getDriver().findElement(LoginPage.email).sendKeys("istvan.borbely@prozenda.com");
-        getDriver().findElement(LoginPage.password).sendKeys("@Prozenda2023@");
-        getDriver().findElement(LoginPage.loginButton).click();
-
+        if(getDriver().findElements(email).size() > 0) {
+            getDriver().findElement(email).sendKeys("istvan.borbely@prozenda.com");
+            getDriver().findElement(password).sendKeys("@Prozenda2023@");
+            getDriver().findElement(loginButton).click();
+        }
         waitUntil(ExpectedConditions.visibilityOfElementLocated(MainPage.favoriteButton));
     }
 
     public void loginNegative() {
-        getDriver().findElement(LoginPage.email).sendKeys("istvan.borbely@prozenda.com");
-        getDriver().findElement(LoginPage.password).sendKeys("Prozenda2023");
-        getDriver().findElement(LoginPage.loginButton).click();
+        getDriver().findElement(email).sendKeys("istvan.borbely@prozenda.com");
+        getDriver().findElement(password).sendKeys("Prozenda2023");
+        getDriver().findElement(loginButton).click();
 
         waitUntil(ExpectedConditions.visibilityOfElementLocated(LoginPage.incorrectLoginAlertMessage));
     }
