@@ -34,7 +34,6 @@ public class LoginPageSteps {
     public void navigateToAllProductsPage() {
         pages.getControlPanelPagePOM().clickProductsToggle();
         pages.getControlPanelPagePOM().clickAllProductsButton();
-        System.out.println("w");
     }
 
     @Then("navigate back to All Products page")
