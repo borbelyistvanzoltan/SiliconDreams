@@ -23,4 +23,22 @@ public class ProductsPageSteps {
         pages.getProductsPagePOM().clickDeleteButton();
         pages.getProductsPagePOM().clickAcceptDelete();
     }
+
+    @Then("import products")
+    public void importProducts() {
+        pages.getProductsPagePOM().clickImportExportButton();
+        pages.getProductsPagePOM().clickImportButton();
+        pages.getProductsPagePOM().attachImportFile();
+        pages.getProductsPagePOM().doImport();
+    }
+
+    @Then("check successfully imported {string} product")
+    public void checkSuccessfulImport(String numberOfImportedProducts) {
+        pages.getProductsPagePOM().checkSuccessfulImport(Integer.parseInt(numberOfImportedProducts));
+    }
+
+    @Then("jump to products list")
+    public void jumpToProductsList() {
+        pages.getProductsPagePOM().jumpToProductsList();
+    }
 }
