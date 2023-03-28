@@ -1,8 +1,13 @@
 package com.prozenda.pages;
 
+import com.prozenda.utils.GetProperties;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import static com.prozenda.selectors.ProductsPage.*;
 
@@ -43,5 +48,39 @@ public class ProductsPagePOM extends AbstractPage {
         wait(4000);
         waitUntil(ExpectedConditions.elementToBeClickable(allDeleteButton));
         getDriver().findElement(acceptDeleteButton).click();
+    }
+
+    public void clickImportExportButton() {
+        getDriver().findElement(importExportButton).click();
+    }
+
+    public void clickImportButton() {
+        getDriver().findElement(importButton).click();
+    }
+
+    public void attachImportFile() {
+        waitUntil(ExpectedConditions.presenceOfElementLocated(fileInput));
+        getDriver().findElement(fileInput).sendKeys(getTransactionFilePath());
+    }
+
+    public void doImport() {
+        waitUntil(ExpectedConditions.elementToBeClickable(doImportButton));
+        ((JavascriptExecutor) getDriver()).executeScript("arguments[0].click()", getDriver().findElement(doImportButton));
+    }
+
+    public void checkSuccessfulImport(int numberOfImportedProducts) {
+        Assert.assertTrue(getDriver().findElement(importSuccessDiv).getText().contains("Sikeres importálás!"));
+        Assert.assertTrue(getDriver().findElement(importSuccessDiv).getText().contains(numberOfImportedProducts + " elem került importálásra"));
+    }
+
+    public void jumpToProductsList() {
+        ((JavascriptExecutor) getDriver()).executeScript("arguments[0].click()", getDriver().findElement(jumpToProductsListButton));
+    }
+
+    public String getTransactionFilePath() {
+        Path currentRelativePath = Paths.get("");
+        String currentAbsolutePath = currentRelativePath.toAbsolutePath().toString();
+
+        return currentAbsolutePath + GetProperties.getProperty("importfile.path");
     }
 }
