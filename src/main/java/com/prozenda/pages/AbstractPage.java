@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class AbstractPage {
+public class AbstractPage{
 
     public static final Duration timeout = Duration.ofSeconds(15);
     public WebDriverWait wait = new WebDriverWait(getDriver(), timeout);

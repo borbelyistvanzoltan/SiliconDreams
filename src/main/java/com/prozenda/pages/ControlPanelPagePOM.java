@@ -1,7 +1,6 @@
 package com.prozenda.pages;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import static com.prozenda.selectors.ControlPanelPage.*;
 
 public class ControlPanelPagePOM extends AbstractPage {

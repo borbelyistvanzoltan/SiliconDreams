@@ -10,6 +10,7 @@ public class Pages {
     private GeneralPagePOM generalPagePOM;
     private NewProductPagePOM newProductPagePOM;
     private ProductsPagePOM productsPagePOM;
+    private HelpPagePOM helpPagePOM;
 
     public LoginPagePOM getLoginPagePOM() {
         if (loginPagePOM == null){
@@ -73,5 +74,13 @@ public class Pages {
         }
 
         return productsPagePOM;
+    }
+
+    public HelpPagePOM getHelpPagePOM() {
+        if (helpPagePOM == null){
+            helpPagePOM = new HelpPagePOM();
+        }
+
+        return helpPagePOM;
     }
 }
