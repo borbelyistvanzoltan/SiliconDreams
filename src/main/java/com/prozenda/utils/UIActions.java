@@ -1,0 +1,82 @@
+package com.prozenda.utils;
+
+import com.prozenda.drivermanager.DriverManager;
+import com.prozenda.pages.AbstractPage;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+
+import java.io.ByteArrayInputStream;
+
+/**
+ * @author Rebeka Alajtner
+ * @created 24/04/2023 - 13:19
+ * @project SiliconDreams
+ */
+public class UIActions extends AbstractPage {
+    public static boolean isElementVisible(By element) {
+        try {
+            waitUntil(ExpectedConditions.elementToBeClickable(element));
+            return true;
+        } catch (TimeoutException e) {
+            System.err.println("TimeoutException, the element is not visible!\n" + e.getMessage());
+            return false;
+        } catch (Exception e) {
+            System.err.println("Another exception type:\n" + e.getMessage());
+            return false;
+        }
+    }
+
+    public static void elementClick(By _element) {
+        try {
+            if (isElementVisible(_element)) {
+                waitUntil(ExpectedConditions.elementToBeClickable(_element));
+                DriverManager.getInstance().getDriver().findElement(_element).click();
+            }
+        } catch (NoSuchElementException e) {
+            System.err.println("NoSuchElementException, the element is not visible!\n" + e.getMessage());
+        } catch (StaleElementReferenceException e) {
+            System.err.println("StaleElementReferenceException, the element is does not exist!\n" + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Another exception type:\n" + e.getMessage());
+        }
+    }
+
+    public static void setText(By element, String text, boolean clear) {
+        try {
+            if (isElementVisible(element)) {
+                WebElement webElement = DriverManager.getInstance().getDriver().findElement(element);
+                if (clear)
+                    webElement.clear();
+                try{
+                    Thread.sleep(1000);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+                webElement.sendKeys(text);
+            }
+        } catch (NoSuchElementException e) {
+            System.err.println("NoSuchElementException, the element is not visible!\n" + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.err.println("IllegalArgumentException, the text is null!\n" + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Another exception type!\n" + e.getMessage());
+        }
+    }
+    public ByteArrayInputStream takeScreenshot(){
+        ByteArrayInputStream screenshot = new ByteArrayInputStream(((TakesScreenshot) DriverManager.getInstance().getDriver()).getScreenshotAs(OutputType.BYTES));
+        return screenshot;
+    }
+
+    public static void waitForInput(By element, String attribute, int maxWaitTime){
+        int maxWait =0;
+        while(maxWait<=maxWaitTime && getDriver().findElement(element).getAttribute(attribute).trim().equals("")){
+            try{
+                Thread.sleep(500);
+                maxWait +=500;
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
+}
