@@ -15,3 +15,4 @@ Feature: Checking the user authorization table
     Then Edit partner - get the text from message - successful or unsuccessful
     Given Delete partner
     Then Delete partner - get the text from message - successful or unsuccessful
+    Then Check the delete

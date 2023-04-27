@@ -22,6 +22,8 @@ public class PartnersPage {
     public static final By newCustomer = By.xpath("//*[ text() = 'Új vevő']");
     public static final By partnerFormListOk = By.xpath("/html[1]/body[1]/div[12]/div[1]/div[3]/button[1]");
 
+    public static final By filterResults = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]");
+
     // New partner basic data
     public static final By partnerName = By.id("partner_name");
     public static final By foundPartnerName = By.xpath("//*[ contains (text(), 'TESZT-PARTNER Kft.' ) ]");
@@ -36,5 +38,6 @@ public class PartnersPage {
     public static final By deletePartner = By.xpath("/html[1]/body[1]/div[12]/a[3]");
     public static final By confirmDelete = By.xpath("/html[1]/body[1]/div[12]/div[1]/div[3]/button[1]");
     public static final By deleteMessageBox = By.xpath("/html/body/div[12]/span[3]");
+
 }
 

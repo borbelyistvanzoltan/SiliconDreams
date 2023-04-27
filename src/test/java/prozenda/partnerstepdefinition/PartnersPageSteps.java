@@ -4,12 +4,14 @@ import com.prozenda.Bench;
 import com.prozenda.pages.Pages;
 import com.prozenda.utils.UIActions;
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.qameta.allure.Allure;
 import io.qameta.allure.model.Status;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.AfterTest;
 
 /**
  * @author Rebeka Alajtner
@@ -129,10 +131,17 @@ public class PartnersPageSteps extends UIActions {
         }
     }
 
+    @Then("Check the delete")
+    public void deleteCheck(){
+        pages.getPartnersPagePOM().filterByName();
+        if( !pages.getPartnersPagePOM().partnerDeleteCheck().equals("Nincs a keresésnek megfelelő találat")){
+            pages.getPartnersPagePOM().deletePartner();
+        }
+    }
+
    @After
    public void logoutAndCloseDriver(){
-        pages.getLogoutFromPagePOM().navigateToLogout();
-        bench.closeTest();
-        bench = null;
+       bench.closeTest();
+       bench = null;
     }
 }

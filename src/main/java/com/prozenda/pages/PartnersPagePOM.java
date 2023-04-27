@@ -18,6 +18,7 @@ public class PartnersPagePOM extends UIActions {
     Pages pages = new Pages();
     private String userData = null;
     public static TestData testData;
+
     public void navigateToUsersPermission(){
         elementClick(settings);
         elementClick(users);
@@ -88,5 +89,10 @@ public class PartnersPagePOM extends UIActions {
         waitUntil(ExpectedConditions.visibilityOfElementLocated(deleteMessageBox));
         String deleteMessage = getDriver().findElement(deleteMessageBox).getAttribute("textContent");
         return deleteMessage;
+    }
+
+    public String partnerDeleteCheck(){
+        String results = getDriver().findElement(filterResults).getAttribute("textContent");
+        return results;
     }
 }
