@@ -1,5 +1,7 @@
 package com.prozenda.pages;
 
+import com.prozenda.selectors.UsersPermission;
+
 public class Pages {
 
     private LoginPagePOM loginPagePOM;
@@ -10,7 +12,10 @@ public class Pages {
     private GeneralPagePOM generalPagePOM;
     private NewProductPagePOM newProductPagePOM;
     private ProductsPagePOM productsPagePOM;
+    private LogoutFromPagePOM logoutFromPagePOM;
     private HelpPagePOM helpPagePOM;
+    private PartnersPagePOM partnersPagePOM;
+    private UsersPermission usersPermissionPOM;
 
     public LoginPagePOM getLoginPagePOM() {
         if (loginPagePOM == null){
@@ -76,11 +81,35 @@ public class Pages {
         return productsPagePOM;
     }
 
+    public LogoutFromPagePOM getLogoutFromPagePOM(){
+        if (logoutFromPagePOM == null){
+            logoutFromPagePOM = new LogoutFromPagePOM();
+        }
+
+        return logoutFromPagePOM;
+    }
+
     public HelpPagePOM getHelpPagePOM() {
         if (helpPagePOM == null){
             helpPagePOM = new HelpPagePOM();
         }
 
         return helpPagePOM;
+    }
+
+    public PartnersPagePOM getPartnersPagePOM() {
+        if (partnersPagePOM == null){
+            partnersPagePOM = new PartnersPagePOM();
+        }
+
+        return partnersPagePOM;
+    }
+
+    public UsersPermission getUsersPermissionPOM() {
+        if (usersPermissionPOM == null){
+            usersPermissionPOM = new UsersPermission();
+        }
+
+        return usersPermissionPOM;
     }
 }

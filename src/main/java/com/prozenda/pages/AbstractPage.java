@@ -4,10 +4,8 @@ package com.prozenda.pages;
 import com.prozenda.drivermanager.DriverManager;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
 
 public class AbstractPage{
@@ -34,4 +32,5 @@ public class AbstractPage{
             Assert.fail("The web element could not be located");
         }
     }
+
 }
