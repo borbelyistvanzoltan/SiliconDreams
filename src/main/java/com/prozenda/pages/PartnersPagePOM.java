@@ -1,11 +1,7 @@
 package com.prozenda.pages;
 
-import com.prozenda.testdata.TestData;
 import com.prozenda.utils.UIActions;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import java.io.FileReader;
 import static com.prozenda.selectors.PartnersPage.*;
 import static com.prozenda.selectors.UsersPermission.*;
 
@@ -15,9 +11,6 @@ import static com.prozenda.selectors.UsersPermission.*;
  * @project SiliconDreams
  */
 public class PartnersPagePOM extends UIActions {
-    Pages pages = new Pages();
-    private String userData = null;
-    public static TestData testData;
 
     public void navigateToUsersPermission(){
         elementClick(settings);
@@ -25,11 +18,7 @@ public class PartnersPagePOM extends UIActions {
         elementClick(usersPermission);
     }
     public void searchUser(){
-        try {
-            testData = new TestData().init((JSONObject) new JSONParser().parse(new FileReader("TestData.json")));
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        readTheTestData();
         setText(userSearch, testData.getUser(), false);
         waitUntil(ExpectedConditions.visibilityOfElementLocated(foundUser));
     }
@@ -69,6 +58,7 @@ public class PartnersPagePOM extends UIActions {
     }
 
     public void filterByName(){
+        readTheTestData();
         setText(nameFilter, testData.getCreatedPartnerName(), true);
     }
 
@@ -94,5 +84,10 @@ public class PartnersPagePOM extends UIActions {
     public String partnerDeleteCheck(){
         String results = getDriver().findElement(filterResults).getAttribute("textContent");
         return results;
+    }
+
+    public String checkTheCreatedPartner(){
+        String createdPartnerName = getDriver().findElement(createdPartner).getAttribute("textContent");
+        return createdPartnerName;
     }
 }
