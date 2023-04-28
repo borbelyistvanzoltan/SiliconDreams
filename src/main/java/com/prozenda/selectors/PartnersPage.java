@@ -38,6 +38,7 @@ public class PartnersPage {
     public static final By deletePartner = By.xpath("/html[1]/body[1]/div[12]/a[3]");
     public static final By confirmDelete = By.xpath("/html[1]/body[1]/div[12]/div[1]/div[3]/button[1]");
     public static final By deleteMessageBox = By.xpath("/html/body/div[12]/span[3]");
+    public static final By createdPartner = By.xpath("//*[ text() = 'TESZT-PARTNER Kft.']");
 
 }
 

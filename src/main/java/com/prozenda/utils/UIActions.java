@@ -2,11 +2,15 @@ package com.prozenda.utils;
 
 import com.prozenda.drivermanager.DriverManager;
 import com.prozenda.pages.AbstractPage;
+import com.prozenda.testdata.TestData;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 
 import java.io.ByteArrayInputStream;
+import java.io.FileReader;
 
 /**
  * @author Rebeka Alajtner
@@ -14,6 +18,7 @@ import java.io.ByteArrayInputStream;
  * @project SiliconDreams
  */
 public class UIActions extends AbstractPage {
+    public static TestData testData;
     public static boolean isElementVisible(By element) {
         try {
             waitUntil(ExpectedConditions.elementToBeClickable(element));
@@ -77,6 +82,14 @@ public class UIActions extends AbstractPage {
             } catch (Exception e){
                 e.printStackTrace();
             }
+        }
+    }
+
+    public static void readTheTestData(){
+        try {
+            testData = new TestData().init((JSONObject) new JSONParser().parse(new FileReader("TestData.json")));
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 }

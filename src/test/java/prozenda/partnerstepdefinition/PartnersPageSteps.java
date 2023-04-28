@@ -2,6 +2,7 @@ package prozenda.partnerstepdefinition;
 
 import com.prozenda.Bench;
 import com.prozenda.pages.Pages;
+import com.prozenda.testdata.TestData;
 import com.prozenda.utils.UIActions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -22,6 +23,7 @@ public class PartnersPageSteps extends UIActions {
 
     @Before
     public void setUp(){
+        readTheTestData();
         if (Bench.bench == null) {
             new Bench();
         }
@@ -46,8 +48,8 @@ public class PartnersPageSteps extends UIActions {
                 System.out.println("The user has got every permission!");
                 Allure.step("The user has got every permission!", Status.PASSED);
             } else{
-                System.err.println("The user hasn't got every permisson!");
-                Allure.step("The user hasn't got every permisson!", Status.FAILED);
+                System.err.println("The user hasn't got every permission!");
+                Allure.step("The user hasn't got every permission!", Status.FAILED);
             }
         } else if (pages.getPartnersPagePOM().checkUserPermission().equals("true")) {
             System.out.println("The user has got every permission!");
@@ -125,7 +127,7 @@ public class PartnersPageSteps extends UIActions {
         } else {
             System.err.println("Unsuccessful delete the partner!");
             Allure.step("Unsuccessful delete the partner!", Status.FAILED);
-            Allure.addAttachment("delete the partner", takeScreenshot());
+            Allure.addAttachment("Delete the partner", takeScreenshot());
         }
     }
 
@@ -134,6 +136,19 @@ public class PartnersPageSteps extends UIActions {
         pages.getPartnersPagePOM().filterByName();
         if( !pages.getPartnersPagePOM().partnerDeleteCheck().equals("Nincs a keresésnek megfelelő találat")){
             pages.getPartnersPagePOM().deletePartner();
+        }
+    }
+
+    @Then ("Check the created partner")
+    public void checkTheCreatedPartner(){
+        pages.getPartnersPagePOM().filterByName();
+        if (pages.getPartnersPagePOM().checkTheCreatedPartner().equals("TESZT-PARTNER Kft.")){
+            System.out.println("New partner has been created!");
+            Allure.step("New partner has been created!", Status.PASSED);
+        }else {
+            System.err.println("New partner hasn't been created!");
+            Allure.step("New partner hasn't been created!", Status.FAILED);
+            Allure.addAttachment("Create new partner", takeScreenshot());
         }
     }
 
