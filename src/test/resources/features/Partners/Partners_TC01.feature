@@ -1,6 +1,6 @@
 Feature: Checking the user authorization table
 
-  @TC_01
+  @Partners_TC01
   Scenario: View the partners, create partner, edit, delete the partner
     Then Version number from JSON
     And Compare the version number from JSON with the version number from the application
