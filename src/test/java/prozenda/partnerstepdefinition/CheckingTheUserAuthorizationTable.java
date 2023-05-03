@@ -2,7 +2,6 @@ package prozenda.partnerstepdefinition;
 
 import com.prozenda.Bench;
 import com.prozenda.pages.Pages;
-import com.prozenda.testdata.TestData;
 import com.prozenda.utils.UIActions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -14,13 +13,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * @author Rebeka Alajtner
- * @created 21/04/2023 - 13:23
+ * @created 02/05/2023 - 15:07
  * @project SiliconDreams
  */
-public class PartnersPageSteps extends UIActions {
+public class CheckingTheUserAuthorizationTable extends UIActions {
     Pages pages = new Pages();
     public static Bench bench;
-
     @Before
     public void setUp(){
         readTheTestData();
@@ -130,7 +128,6 @@ public class PartnersPageSteps extends UIActions {
             Allure.addAttachment("Delete the partner", takeScreenshot());
         }
     }
-
     @Then("Check the delete")
     public void deleteCheck(){
         pages.getPartnersPagePOM().filterByName();
@@ -139,22 +136,9 @@ public class PartnersPageSteps extends UIActions {
         }
     }
 
-    @Then ("Check the created partner")
-    public void checkTheCreatedPartner(){
-        pages.getPartnersPagePOM().filterByName();
-        if (pages.getPartnersPagePOM().checkTheCreatedPartner().equals("TESZT-PARTNER Kft.")){
-            System.out.println("New partner has been created!");
-            Allure.step("New partner has been created!", Status.PASSED);
-        }else {
-            System.err.println("New partner hasn't been created!");
-            Allure.step("New partner hasn't been created!", Status.FAILED);
-            Allure.addAttachment("Create new partner", takeScreenshot());
-        }
-    }
-
-   @After
-   public void logoutAndCloseDriver(){
-       bench.closeTest();
-       bench = null;
+    @After
+    public void logoutAndCloseDriver(){
+        bench.closeTest();
+        bench = null;
     }
 }

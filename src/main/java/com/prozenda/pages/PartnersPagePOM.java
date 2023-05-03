@@ -90,4 +90,5 @@ public class PartnersPagePOM extends UIActions {
         String createdPartnerName = getDriver().findElement(createdPartner).getAttribute("textContent");
         return createdPartnerName;
     }
+
 }

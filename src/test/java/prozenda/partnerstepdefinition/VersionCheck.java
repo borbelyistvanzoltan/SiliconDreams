@@ -16,7 +16,7 @@ import java.io.FileReader;
  * @project SiliconDreams
  */
 
-public class VersionCheckSteps {
+public class VersionCheck {
     Pages page = new Pages();
     public static Version version;
 
