@@ -1,6 +1,7 @@
 package com.prozenda.pages;
 
 import com.prozenda.utils.UIActions;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import static com.prozenda.selectors.PartnersPage.*;
 import static com.prozenda.selectors.UsersPermission.*;
@@ -29,9 +30,14 @@ public class PartnersPagePOM extends UIActions {
         return notificationCheck;
     }
 
-    public void navigateToPartnersModul(){
-        elementClick(partnersModul);
+    public void navigateToPartnersModule(){
+        elementClick(partnersModule);
         elementClick(allPartners);
+    }
+
+    public void navigateToNewPrivatePartner(){
+        elementClick(newPrivatePerson);
+        elementClick(partnerFormListOk);
     }
 
     public String viewPartnersList(){
@@ -45,7 +51,7 @@ public class PartnersPagePOM extends UIActions {
         elementClick(newCustomer);
         elementClick(partnerFormListOk);
         setText(partnerName,testData.getPartnerID(), false);
-        elementClick(foundPartnerName);
+        elementClick(createdPartner);
         waitForInput(companyNumber, "defaultValue",5000);
         elementClick(savePartner);
     }
@@ -57,9 +63,9 @@ public class PartnersPagePOM extends UIActions {
         return message;
     }
 
-    public void filterByName(){
+    public void filterByName(String filteredName){
         readTheTestData();
-        setText(nameFilter, testData.getCreatedPartnerName(), true);
+        setText(nameFilter, filteredName, true);
     }
 
     public void editPartner(){
@@ -91,4 +97,32 @@ public class PartnersPagePOM extends UIActions {
         return createdPartnerName;
     }
 
+    public void saveTheNewPartner(){
+        elementClick(savePartner);
+    }
+
+    public void waitToAlert() {
+        waitUntil(ExpectedConditions.alertIsPresent());
+        Alert alert = getDriver().switchTo().alert();
+        alert.accept();
+        try {
+            Thread.sleep(2000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public String getErrorList(){
+        String list = getDriver().findElement(errorAlert).getAttribute("textContent");
+        return list;
+    }
+
+    public void enterTheNewPrivatePersonData(){
+        setText(partnerName, testData.getPrivatePartnerName(),false);
+        elementClick(partnerId);
+    }
+
+    public String getFoundPrivatePartnerName(){
+        String foundName = getDriver().findElement(foundPrivatePartnerName).getAttribute("textContent");
+        return foundName;
+    }
 }

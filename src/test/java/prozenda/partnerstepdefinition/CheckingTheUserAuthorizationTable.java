@@ -1,10 +1,7 @@
 package prozenda.partnerstepdefinition;
 
-import com.prozenda.Bench;
 import com.prozenda.pages.Pages;
 import com.prozenda.utils.UIActions;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.qameta.allure.Allure;
@@ -18,18 +15,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
  */
 public class CheckingTheUserAuthorizationTable extends UIActions {
     Pages pages = new Pages();
-    public static Bench bench;
-    @Before
-    public void setUp(){
-        readTheTestData();
-        if (Bench.bench == null) {
-            new Bench();
-        }
-        bench = Bench.bench;
-        bench.openBrowserTest();
-        pages.getLoginPagePOM().navigate();
-        pages.getLoginPagePOM().login();
-    }
 
     @Then("Navigate the users permission")
     public void navigateToUsersPermission(){
@@ -60,7 +45,7 @@ public class CheckingTheUserAuthorizationTable extends UIActions {
 
     @Given("Navigate to the partners module and click the all partners")
     public void navigateToAllPartnes(){
-        pages.getPartnersPagePOM().navigateToPartnersModul();
+        pages.getPartnersPagePOM().navigateToPartnersModule();
     }
 
     @Then("View the partners list")
@@ -94,7 +79,7 @@ public class CheckingTheUserAuthorizationTable extends UIActions {
 
     @Given("Edit the partner")
     public void editPartner(){
-        pages.getPartnersPagePOM().filterByName();
+        pages.getPartnersPagePOM().filterByName(testData.getCreatedPartnerName());
         pages.getPartnersPagePOM().editPartner();
     }
 
@@ -112,7 +97,7 @@ public class CheckingTheUserAuthorizationTable extends UIActions {
 
     @Given("Delete partner")
     public void deletePartner(){
-        pages.getPartnersPagePOM().filterByName();
+        pages.getPartnersPagePOM().filterByName(testData.getCreatedPartnerName());
         pages.getPartnersPagePOM().deletePartner();
         pages.getPartnersPagePOM().getDeleteMessage();
     }
@@ -130,15 +115,9 @@ public class CheckingTheUserAuthorizationTable extends UIActions {
     }
     @Then("Check the delete")
     public void deleteCheck(){
-        pages.getPartnersPagePOM().filterByName();
+        pages.getPartnersPagePOM().filterByName(testData.getCreatedPartnerName());
         if( !pages.getPartnersPagePOM().partnerDeleteCheck().equals("Nincs a keresésnek megfelelő találat")){
             pages.getPartnersPagePOM().deletePartner();
         }
-    }
-
-    @After
-    public void logoutAndCloseDriver(){
-        bench.closeTest();
-        bench = null;
     }
 }

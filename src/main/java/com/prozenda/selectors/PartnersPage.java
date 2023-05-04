@@ -1,6 +1,7 @@
 package com.prozenda.selectors;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 /**
  * @author Rebeka Alajtner
@@ -9,7 +10,8 @@ import org.openqa.selenium.By;
  */
 public class PartnersPage {
 
-    public static final By partnersModul = By.xpath("//*[ contains (text(), 'Partnerek' ) ]");
+    public static final By partnersModule = By.xpath("//*[ contains (text(), 'Partnerek' ) ]");
+    public static final By newPrivatePerson = By.xpath("//*[ contains (text(), 'Új magánszemély' ) ]");
     public static final By settings = By.xpath("//*[ text() = 'Beállítások']");
     public static final By users = By.xpath("//*[ text() = 'Felhasználók']");
     public static final By usersPermission = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]");
@@ -20,17 +22,19 @@ public class PartnersPage {
     public static final By partnersGridCell = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[3]");
     public static final By newPartner = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
     public static final By newCustomer = By.xpath("//*[ text() = 'Új vevő']");
-    public static final By partnerFormListOk = By.xpath("/html[1]/body[1]/div[12]/div[1]/div[3]/button[1]");
+    public static final By partnerFormListOk = By.xpath("//*[ text() = 'OK']");
 
     public static final By filterResults = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]");
 
     // New partner basic data
     public static final By partnerName = By.id("partner_name");
-    public static final By foundPartnerName = By.xpath("//*[ contains (text(), 'TESZT-PARTNER Kft.' ) ]");
+    public static final By foundPrivatePartnerName = By.xpath("//*[ text() = 'Teszt Ember']");
     public static final By savePartner = By.id("save_btn");
+    public static final By partnerId = By.name("partnerkod");
     public static final By companyNumber = By.name("cegjegyzekszam");
     public static final By successfulSaveMessage = By.id("swal2-title");
     public static final By backToPartnerList = By.xpath("//span[contains(text(),'Vissza a listanézethez')]");
+    public static final By errorAlert =  By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]");
 
     // Edit partner
     public static final By foundNameActions = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/a[1]");
