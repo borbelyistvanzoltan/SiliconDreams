@@ -37,4 +37,7 @@ public class TestData {
     public String getCompanyNumber(){
         return companyNumber;
     }
+
+    private String privatePartnerName;
+    public String getPrivatePartnerName(){ return privatePartnerName;}
 }

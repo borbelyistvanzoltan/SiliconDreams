@@ -1,9 +1,7 @@
 package prozenda.partnerstepdefinition;
 
-import com.prozenda.Bench;
 import com.prozenda.pages.Pages;
 import com.prozenda.utils.UIActions;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Then;
 import io.qameta.allure.Allure;
 import io.qameta.allure.model.Status;
@@ -15,22 +13,10 @@ import io.qameta.allure.model.Status;
  */
 public class CreateNewCorporateCustomerPartner extends UIActions{
     Pages pages = new Pages();
-    public static Bench bench;
 
-    @Before
-    public void setUp(){
-        readTheTestData();
-        if (Bench.bench == null) {
-            new Bench();
-        }
-        bench = Bench.bench;
-        bench.openBrowserTest();
-        pages.getLoginPagePOM().navigate();
-        pages.getLoginPagePOM().login();
-    }
     @Then("Check the created partner")
     public void checkTheCreatedPartner(){
-        pages.getPartnersPagePOM().filterByName();
+        pages.getPartnersPagePOM().filterByName(testData.getCreatedPartnerName());
         if (pages.getPartnersPagePOM().checkTheCreatedPartner().equals("TESZT-PARTNER Kft.")){
             System.out.println("New partner has been created!");
             Allure.step("New partner has been created!", Status.PASSED);
