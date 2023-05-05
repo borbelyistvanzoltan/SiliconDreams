@@ -5,12 +5,14 @@ import com.prozenda.pages.AbstractPage;
 import com.prozenda.testdata.TestData;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Wait;
-
+import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.ByteArrayInputStream;
 import java.io.FileReader;
+import static com.prozenda.utils.WaitEnum.*;
 
 /**
  * @author Rebeka Alajtner
@@ -90,6 +92,21 @@ public class UIActions extends AbstractPage {
             testData = new TestData().init((JSONObject) new JSONParser().parse(new FileReader("TestData.json")));
         }catch (Exception e){
             e.printStackTrace();
+        }
+    }
+
+    public static WaitEnum waitToElement(ExpectedCondition condition){
+        try {
+            WebDriverWait wait = new WebDriverWait(getDriver(), timeout);
+            wait.until(condition);
+            return ELEMENTLOCATED;
+        } catch (NoAlertPresentException e) {
+             return NOALERT;
+        } catch (TimeoutException e){
+            return TIMEOUT;
+        } catch (Exception e){
+            Assert.fail("The web element could not be located");
+            return EXCEPTION;
         }
     }
 }
