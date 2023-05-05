@@ -1,7 +1,6 @@
 package com.prozenda.selectors;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 /**
  * @author Rebeka Alajtner
@@ -12,6 +11,9 @@ public class PartnersPage {
 
     public static final By partnersModule = By.xpath("//*[ contains (text(), 'Partnerek' ) ]");
     public static final By newPrivatePerson = By.xpath("//*[ contains (text(), 'Új magánszemély' ) ]");
+    public static final By newButton = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/header[1]/div[1]/div[1]/ul[1]/li[1]/a[1]");
+    public static final By newListPartnerElement = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/header[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/ul[1]/li[1]/a[1]/span[2]");
+    public static final By privatePartner = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/header[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/ul[1]/li[1]/div[1]/ul[1]/li[3]/a[1]/span[1]");
     public static final By settings = By.xpath("//*[ text() = 'Beállítások']");
     public static final By users = By.xpath("//*[ text() = 'Felhasználók']");
     public static final By usersPermission = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]");

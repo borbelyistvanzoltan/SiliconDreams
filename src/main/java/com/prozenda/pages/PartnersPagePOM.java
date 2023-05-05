@@ -5,6 +5,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import static com.prozenda.selectors.PartnersPage.*;
 import static com.prozenda.selectors.UsersPermission.*;
+import static com.prozenda.utils.WaitEnum.*;
 
 /**
  * @author Rebeka Alajtner
@@ -102,13 +103,10 @@ public class PartnersPagePOM extends UIActions {
     }
 
     public void waitToAlert() {
-        waitUntil(ExpectedConditions.alertIsPresent());
-        Alert alert = getDriver().switchTo().alert();
-        alert.accept();
-        try {
-            Thread.sleep(2000);
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (waitToElement(ExpectedConditions.alertIsPresent()) == ELEMENTLOCATED){
+            Alert alert;
+            alert = getDriver().switchTo().alert();
+            alert.accept();
         }
     }
     public String getErrorList(){
@@ -124,5 +122,12 @@ public class PartnersPagePOM extends UIActions {
     public String getFoundPrivatePartnerName(){
         String foundName = getDriver().findElement(foundPrivatePartnerName).getAttribute("textContent");
         return foundName;
+    }
+
+    public void createPrivatePartnerFromNewButton(){
+        elementClick(newButton);
+        elementClick(newListPartnerElement);
+        elementClick(privatePartner);
+        elementClick(partnerFormListOk);
     }
 }
