@@ -1,8 +1,8 @@
-Feature: Click new private partner from New button and save without data then create new partner
+Feature: Create new private partner from list view and validation
 
-  @TC02
-  Scenario: Create new private partner from New button
-    Given Navigate to the new private partner from New button
+  @TC03
+  Scenario: Create new private partner from list view (validation for save it empty)
+    Given Navigate to the new private partner from list view
     Then Validation the error list
     Given Entering the personal data
     Then Create partner - get the text from message - successful or unsuccessful
