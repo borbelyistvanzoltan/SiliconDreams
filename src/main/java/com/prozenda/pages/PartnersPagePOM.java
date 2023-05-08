@@ -130,4 +130,10 @@ public class PartnersPagePOM extends UIActions {
         elementClick(privatePartner);
         elementClick(partnerFormListOk);
     }
+
+    public void createPrivatePartnerFromListView(){
+        elementClick(plusButton);
+        elementClick(plusButtonNewPrivatePartner);
+        elementClick(partnerFormListOk);
+    }
 }
