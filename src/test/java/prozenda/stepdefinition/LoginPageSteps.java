@@ -28,6 +28,7 @@ public class LoginPageSteps {
     public void navigateToNewProductPage() {
         pages.getControlPanelPagePOM().clickProductsToggle();
         pages.getControlPanelPagePOM().clickNewProductButton();
+        pages.getNewProductPagePOM().confirmDataSheetSelection();
     }
 
     @Then("navigate to All Products page")
