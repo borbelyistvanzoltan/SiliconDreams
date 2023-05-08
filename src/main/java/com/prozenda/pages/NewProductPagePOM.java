@@ -4,8 +4,8 @@ import com.prozenda.selectors.NewProductPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
-import static com.prozenda.selectors.NewProductPage.productTitleInput;
-import static com.prozenda.selectors.NewProductPage.saveButton;
+import static com.prozenda.selectors.NewProductPage.*;
+import static com.prozenda.utils.UIActions.elementClick;
 
 public class NewProductPagePOM extends AbstractPage {
 
@@ -55,5 +55,9 @@ public class NewProductPagePOM extends AbstractPage {
     public void saveProduct() throws InterruptedException {
         wait(3000);
         getDriver().findElement(saveButton).click();
+    }
+
+    public void confirmDataSheetSelection() {
+        elementClick(confirmDataSheetSelectorButton);
     }
 }
