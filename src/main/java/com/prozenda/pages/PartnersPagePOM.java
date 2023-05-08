@@ -136,4 +136,13 @@ public class PartnersPagePOM extends UIActions {
         elementClick(plusButtonNewPrivatePartner);
         elementClick(partnerFormListOk);
     }
+
+    public void clickOnOneOfThePartners(){
+        elementClick(firstPartner);
+    }
+
+    public String getEditHeaderTitle(){
+        String editTitle = getDriver().findElement(editHeaderTitle).getAttribute("textContent");
+        return editTitle;
+    }
 }

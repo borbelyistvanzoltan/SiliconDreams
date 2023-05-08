@@ -41,12 +41,14 @@ public class PartnersPage {
     public static final By errorAlert =  By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]");
 
     // Edit partner
+    public static final By editHeaderTitle = By.xpath("//h3[contains(text(),'Szerkesztés:')]");
     public static final By foundNameActions = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/a[1]");
     public static final By editPartner = By.xpath("/html[1]/body[1]/div[12]/a[1]");
     public static final By deletePartner = By.xpath("/html[1]/body[1]/div[12]/a[3]");
     public static final By confirmDelete = By.xpath("/html[1]/body[1]/div[12]/div[1]/div[3]/button[1]");
     public static final By deleteMessageBox = By.xpath("/html/body/div[12]/span[3]");
     public static final By createdPartner = By.xpath("//*[ text() = 'TESZT-PARTNER Kft.']");
+    public static final By firstPartner = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[3]");
 
 }
 
