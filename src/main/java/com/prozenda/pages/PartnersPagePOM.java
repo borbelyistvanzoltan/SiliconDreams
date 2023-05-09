@@ -65,7 +65,6 @@ public class PartnersPagePOM extends UIActions {
     }
 
     public void filterByName(String filteredName){
-        readTheTestData();
         setText(nameFilter, filteredName, true);
     }
 
@@ -137,12 +136,27 @@ public class PartnersPagePOM extends UIActions {
         elementClick(partnerFormListOk);
     }
 
-    public void clickOnOneOfThePartners(){
-        elementClick(firstPartner);
+    public void clickOnTheCreatedPartnerName(){
+        elementClick(createdPartner);
     }
 
     public String getEditHeaderTitle(){
         String editTitle = getDriver().findElement(editHeaderTitle).getAttribute("textContent");
         return editTitle;
+    }
+
+    public void editCompanyId(){
+        setText(companyId, testData.getEditedCompanyId(), true);
+        elementClick(savePartner);
+        backToListView();
+    }
+
+    public void backToListView(){
+        elementClick(backToList);
+    }
+
+    public String getCompanyId(){
+        String editedCompanyId = getDriver().findElement(companyId).getAttribute("value");
+        return editedCompanyId;
     }
 }

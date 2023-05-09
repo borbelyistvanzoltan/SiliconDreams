@@ -2,6 +2,7 @@ package prozenda.partnerstepdefinition;
 
 import com.prozenda.pages.Pages;
 import com.prozenda.utils.UIActions;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.qameta.allure.Allure;
 import io.qameta.allure.model.Status;
@@ -13,10 +14,12 @@ import io.qameta.allure.model.Status;
  */
 public class OpenEditFromListViewByClickingName extends UIActions {
     Pages pages = new Pages();
+    String companyId;
 
-    @Then ("Click all partners and click one of them")
+    @Given("Click on created partner name")
     public void openEditByClickingName(){
-        pages.getPartnersPagePOM().clickOnOneOfThePartners();
+        pages.getPartnersPagePOM().filterByName(testData.getCreatedPartnerName());
+        pages.getPartnersPagePOM().clickOnTheCreatedPartnerName();
     }
 
     @Then("Editing check")
@@ -29,5 +32,30 @@ public class OpenEditFromListViewByClickingName extends UIActions {
             Allure.step("The partner is not editable!", Status.PASSED);
             Allure.addAttachment("Edit partner" + pages.getPartnersPagePOM().getErrorList(), takeScreenshot());
         }
+    }
+
+    @Given ("Edit the company id")
+    public void editCompanyId(){
+        companyId = pages.getPartnersPagePOM().getCompanyId();
+        pages.getPartnersPagePOM().editCompanyId();
+        openEditByClickingName();
+    }
+
+    @Then ("Check the edited partner company id")
+    public  void checkTheEditedCompanyId(){
+        if (pages.getPartnersPagePOM().getCompanyId().equals(testData.getEditedCompanyId()) && !pages.getPartnersPagePOM().getCompanyId().equals(companyId)){
+            System.out.println("Successful edit!");
+            Allure.step("Successful edit!", Status.PASSED);
+        } else if(!pages.getPartnersPagePOM().getCompanyId().equals(testData.getEditedCompanyId())) {
+            System.err.println("Unsuccessful edit!");
+            Allure.step("Unsuccessful edit!", Status.PASSED);
+            Allure.addAttachment("Edit partner" + pages.getPartnersPagePOM().getErrorList(), takeScreenshot());
+        } else {
+            System.err.println("Unsuccessful edit!");
+            Allure.step("Unsuccessful edit!", Status.PASSED);
+            Allure.addAttachment("Edit partner" + pages.getPartnersPagePOM().getErrorList(), takeScreenshot());
+        }
+        pages.getPartnersPagePOM().saveTheNewPartner();
+        pages.getPartnersPagePOM().backToListView();
     }
 }

@@ -40,4 +40,9 @@ public class TestData {
 
     private String privatePartnerName;
     public String getPrivatePartnerName(){ return privatePartnerName;}
+
+    private String editedCompanyId;
+    public String getEditedCompanyId(){
+        return editedCompanyId;
+    }
 }
