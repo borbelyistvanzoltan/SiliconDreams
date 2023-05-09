@@ -6,6 +6,9 @@ import com.prozenda.selectors.MainPage;
 import com.prozenda.selectors.NotificationSettingsPage;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import static com.prozenda.selectors.MainPage.*;
+import static com.prozenda.utils.UIActions.elementClick;
+
 public class MainPagePOM extends AbstractPage {
 
     public void navigateToLogsPage() {
@@ -27,5 +30,11 @@ public class MainPagePOM extends AbstractPage {
         getDriver().findElement(MainPage.generalButton).click();
 
         waitUntil(ExpectedConditions.visibilityOfElementLocated(GeneralPage.table));
+    }
+
+    public void navigateToNewProductPageFromNewButton() {
+        elementClick(newButton);
+        elementClick(products);
+        elementClick(newProductButton);
     }
 }
