@@ -1,6 +1,5 @@
 package prozenda.stepdefinition;
 
-import com.prozenda.pages.NewProductPagePOM;
 import com.prozenda.pages.Pages;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -28,6 +27,12 @@ public class LoginPageSteps {
     public void navigateToNewProductPage() {
         pages.getControlPanelPagePOM().clickProductsToggle();
         pages.getControlPanelPagePOM().clickNewProductButton();
+        pages.getNewProductPagePOM().confirmDataSheetSelection();
+    }
+
+    @Then("navigate to New Product page from New button")
+    public void navigateToNewProductPageFromNewButton() {
+        pages.getMainPagePOM().navigateToNewProductPageFromNewButton();
         pages.getNewProductPagePOM().confirmDataSheetSelection();
     }
 

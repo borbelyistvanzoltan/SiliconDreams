@@ -3,6 +3,8 @@ package com.prozenda.pages;
 import com.prozenda.utils.UIActions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import static com.prozenda.selectors.MainPage.newButton;
 import static com.prozenda.selectors.PartnersPage.*;
 import static com.prozenda.selectors.UsersPermission.*;
 import static com.prozenda.utils.WaitEnum.*;
