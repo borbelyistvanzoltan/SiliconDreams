@@ -1,4 +1,4 @@
-Feature: Click new private partner from New button and save without data then create new partner
+Feature: Partners
 
   @TC02
   Scenario: Create new private partner from New button
