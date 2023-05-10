@@ -3,5 +3,6 @@
 	"partnerID" : "Teszt partner",
 	"createdPartnerName" : "Teszt-Partner",
 	"companyNumber" : "05-09-024535",
-	"privatePartnerName" : "Teszt Ember"
+	"privatePartnerName" : "Teszt Ember",
+	"editedCompanyId" : "TK120000"
 }
