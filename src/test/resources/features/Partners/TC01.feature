@@ -1,4 +1,4 @@
-Feature: Create new private partner from the left menu
+Feature: Partners
 
   @TC01
   Scenario: Create new private partner from the left menu (validation for save it empty)

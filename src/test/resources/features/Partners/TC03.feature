@@ -1,4 +1,4 @@
-Feature: Create new private partner from list view and validation
+Feature: Partners
 
   @TC03
   Scenario: Create new private partner from list view (validation for save it empty)

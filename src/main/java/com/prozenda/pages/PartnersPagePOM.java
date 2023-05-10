@@ -76,7 +76,10 @@ public class PartnersPagePOM extends UIActions {
         setText(companyNumber, testData.getCompanyNumber(), true);
         elementClick(savePartner);
     }
-
+    public void editPartnerFromActions(){
+        elementClick(foundNameActions);
+        elementClick(editPartner);
+    }
     public void deletePartner(){
         elementClick(foundNameActions);
         elementClick(deletePartner);

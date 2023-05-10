@@ -1,4 +1,4 @@
-Feature: Checking the user authorization table
+Feature: Partners
 
   @Partners_TC01
   Scenario: View the partners, create partner, edit, delete the partner

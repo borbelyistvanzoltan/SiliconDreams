@@ -1,4 +1,4 @@
-Feature: Create a new corporate customer partner
+Feature: Partners
 
   @Partners_TC02
   Scenario: Create new partner, who is corporate and customer
