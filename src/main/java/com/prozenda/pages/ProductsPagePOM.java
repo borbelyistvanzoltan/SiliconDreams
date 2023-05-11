@@ -9,7 +9,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import static com.prozenda.selectors.MainPage.*;
 import static com.prozenda.selectors.ProductsPage.*;
+import static com.prozenda.selectors.ProductsPage.newProductButton;
+import static com.prozenda.utils.UIActions.elementClick;
 
 public class ProductsPagePOM extends AbstractPage {
 
@@ -82,5 +85,9 @@ public class ProductsPagePOM extends AbstractPage {
         String currentAbsolutePath = currentRelativePath.toAbsolutePath().toString();
 
         return currentAbsolutePath + GetProperties.getProperty("importfile.path");
+    }
+
+    public void navigateToNewProductPageFromListView() {
+        elementClick(newProductButton);
     }
 }

@@ -1,6 +1,6 @@
 Feature: Product
 
-  @TC01_service_product
+  @PRODUCT_TC01_service_product
   Scenario: Check that a user can create service product
     Given user is on login page
     Then login with email and password

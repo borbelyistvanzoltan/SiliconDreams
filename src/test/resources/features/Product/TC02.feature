@@ -1,6 +1,6 @@
 Feature: Product
 
-  @TC02
+  @PRODUCT_TC02
   Scenario: Check that a user can create normal product from list view
     Given user is on login page
     Then login with email and password
