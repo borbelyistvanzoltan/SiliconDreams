@@ -38,7 +38,7 @@ public class NewPrivatePartnerFromMenu extends UIActions {
         }
     }
 
-    @Given("Entering the personal data")
+    @Then("Entering the personal data")
     public void addNewPrivatePartner(){
         pages.getPartnersPagePOM().enterTheNewPrivatePersonData();
         pages.getPartnersPagePOM().saveTheNewPartner();

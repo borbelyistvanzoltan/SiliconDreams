@@ -11,6 +11,7 @@ import io.cucumber.java.en.Given;
  */
 public class NewPrivatePartnerFromNewButton extends UIActions {
     Pages pages = new Pages();
+
     @Given("Navigate to the new private partner from New button")
     public void navigateToNewPrivatePerson(){
         pages.getPartnersPagePOM().createPrivatePartnerFromNewButton();

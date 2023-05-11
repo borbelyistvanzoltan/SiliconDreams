@@ -2,7 +2,7 @@ package prozenda.partnerstepdefinition;
 
 import com.prozenda.pages.Pages;
 import com.prozenda.testdata.Version;
-import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.qameta.allure.Allure;
 import io.qameta.allure.model.Status;
@@ -20,7 +20,7 @@ public class VersionCheck {
     Pages page = new Pages();
     public static Version version;
 
-    @Then("Version number from JSON")
+    @Given("Version number from JSON")
     public void getVersionFromJSON(){
         try {
             version = new Version().init((JSONObject) new JSONParser().parse(new FileReader("VersionNumber.json")));
@@ -29,7 +29,7 @@ public class VersionCheck {
         }
     }
 
-    @And("Compare the version number from JSON with the version number from the application")
+    @Then("Compare the version number from JSON with the version number from the application")
     public void getVersionFromHelp(){
         page.getHelpPagePOM().navigateToHelp();
         page.getHelpPagePOM().navigateToAbout();

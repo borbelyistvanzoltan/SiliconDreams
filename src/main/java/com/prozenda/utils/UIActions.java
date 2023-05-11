@@ -10,6 +10,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.awt.*;
 import java.io.ByteArrayInputStream;
 import java.io.FileReader;
 import static com.prozenda.utils.WaitEnum.*;
@@ -56,7 +58,7 @@ public class UIActions extends AbstractPage {
                 if (clear)
                     webElement.clear();
                 try{
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
                 }catch (Exception e){
                     e.printStackTrace();
                 }
@@ -109,4 +111,20 @@ public class UIActions extends AbstractPage {
             return EXCEPTION;
         }
     }
+
+    public static void clear(By element) {
+        try {
+            if (isElementVisible(element)) {
+                WebElement webElement = DriverManager.getInstance().getDriver().findElement(element);
+                webElement.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+            }
+        } catch (NoSuchElementException e) {
+            System.err.println("NoSuchElementException, the element is not visible!\n" + e.getMessage());
+        } catch (IllegalArgumentException e) {
+            System.err.println("IllegalArgumentException, the text is null!\n" + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Another exception type!\n" + e.getMessage());
+        }
+    }
+
 }

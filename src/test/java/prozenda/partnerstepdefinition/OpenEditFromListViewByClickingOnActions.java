@@ -2,7 +2,7 @@ package prozenda.partnerstepdefinition;
 
 import com.prozenda.pages.Pages;
 import com.prozenda.utils.UIActions;
-import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 
 /**
  * @author Rebeka Alajtner
@@ -12,7 +12,7 @@ import io.cucumber.java.en.Given;
 public class OpenEditFromListViewByClickingOnActions extends UIActions {
     Pages pages = new Pages();
 
-    @Given("Edit the partner from actions menu")
+    @Then("Edit the partner from actions menu")
     public void editPartner(){
         pages.getPartnersPagePOM().filterByName(testData.getCreatedPartnerName());
         pages.getPartnersPagePOM().editPartnerFromActions();

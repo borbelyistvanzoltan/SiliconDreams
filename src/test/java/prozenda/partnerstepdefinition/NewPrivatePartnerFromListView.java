@@ -1,8 +1,7 @@
 package prozenda.partnerstepdefinition;
 
 import com.prozenda.pages.Pages;
-import io.cucumber.java.en.Given;
-
+import io.cucumber.java.en.Then;
 
 /**
  * @author Rebeka Alajtner
@@ -12,7 +11,7 @@ import io.cucumber.java.en.Given;
 public class NewPrivatePartnerFromListView {
     Pages pages = new Pages();
 
-    @Given("Navigate to the new private partner from list view")
+    @Then("Navigate to the new private partner from list view")
     public void navigateToNewPrivatePartnerFromListView(){
         pages.getPartnersPagePOM().navigateToPartnersModule();
         pages.getPartnersPagePOM().createPrivatePartnerFromListView();

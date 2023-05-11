@@ -45,4 +45,14 @@ public class TestData {
     public String getEditedCompanyId(){
         return editedCompanyId;
     }
+
+    private String clonePartnerName;
+    public String getClonePartnerName(){
+        return clonePartnerName;
+    }
+
+    private String clonePartnerId;
+    public String getClonePartnerId(){
+        return clonePartnerId;
+    }
 }
