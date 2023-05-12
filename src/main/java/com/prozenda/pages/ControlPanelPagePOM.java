@@ -24,6 +24,7 @@ public class ControlPanelPagePOM extends AbstractPage {
 
     public void clickNewProductButton() {
         getDriver().findElement(newProductButton).click();
+        getDriver().findElement(selectDataSheetConfirmationButton).click();
     }
 
     public void clickAllProductsButton() {
