@@ -16,6 +16,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class CheckingTheUserAuthorizationTable extends UIActions {
     Pages pages = new Pages();
 
+    @Given("Navigate to the partners module and click the all partners")
+    public void navigateToAllPartnes(){
+        pages.getPartnersPagePOM().navigateToPartnersModule();
+    }
+
     @Then("Navigate the users permission")
     public void navigateToUsersPermission(){
         pages.getPartnersPagePOM().navigateToUsersPermission();
@@ -43,11 +48,6 @@ public class CheckingTheUserAuthorizationTable extends UIActions {
         }
     }
 
-    @Given("Navigate to the partners module and click the all partners")
-    public void navigateToAllPartnes(){
-        pages.getPartnersPagePOM().navigateToPartnersModule();
-    }
-
     @Then("View the partners list")
     public void viewPartners(){
         if (!pages.getPartnersPagePOM().viewPartnersList().equals("")){
@@ -60,7 +60,7 @@ public class CheckingTheUserAuthorizationTable extends UIActions {
         }
     }
 
-    @Given ("Create new partner")
+    @Then ("Create new partner")
     public void createPartners(){
         pages.getPartnersPagePOM().createNewPartner();
     }
@@ -77,7 +77,7 @@ public class CheckingTheUserAuthorizationTable extends UIActions {
         }
     }
 
-    @Given("Edit the partner")
+    @Then("Edit the partner")
     public void editPartner(){
         pages.getPartnersPagePOM().filterByName(testData.getCreatedPartnerName());
         pages.getPartnersPagePOM().editPartner();
@@ -95,7 +95,7 @@ public class CheckingTheUserAuthorizationTable extends UIActions {
         }
     }
 
-    @Given("Delete partner")
+    @Then("Delete partner")
     public void deletePartner(){
         pages.getPartnersPagePOM().filterByName(testData.getCreatedPartnerName());
         pages.getPartnersPagePOM().deletePartner();
@@ -113,6 +113,7 @@ public class CheckingTheUserAuthorizationTable extends UIActions {
             Allure.addAttachment("Delete the partner", takeScreenshot());
         }
     }
+
     @Then("Check the delete")
     public void deleteCheck(){
         pages.getPartnersPagePOM().filterByName(testData.getCreatedPartnerName());

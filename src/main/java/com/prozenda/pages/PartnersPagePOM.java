@@ -3,9 +3,9 @@ package com.prozenda.pages;
 import com.prozenda.utils.UIActions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
 import static com.prozenda.selectors.MainPage.newButton;
 import static com.prozenda.selectors.PartnersPage.*;
+import static com.prozenda.selectors.PartnersPage.partnerName;
 import static com.prozenda.selectors.UsersPermission.*;
 import static com.prozenda.utils.WaitEnum.*;
 
@@ -60,6 +60,7 @@ public class PartnersPagePOM extends UIActions {
     }
 
     public String getSuccessfulSaveMessage(){
+        waitUntil(ExpectedConditions.visibilityOfElementLocated(successfulSaveMessage));
         getDriver().findElement(successfulSaveMessage);
         String message = getDriver().findElement(successfulSaveMessage).getAttribute("textContent");
         elementClick(backToPartnerList);
@@ -67,6 +68,7 @@ public class PartnersPagePOM extends UIActions {
     }
 
     public void filterByName(String filteredName){
+        waitUntil(ExpectedConditions.elementToBeClickable(nameFilter));
         setText(nameFilter, filteredName, true);
     }
 
@@ -93,6 +95,7 @@ public class PartnersPagePOM extends UIActions {
     }
 
     public String partnerDeleteCheck(){
+        waitUntil(ExpectedConditions.visibilityOfElementLocated(filterResults));
         String results = getDriver().findElement(filterResults).getAttribute("textContent");
         return results;
     }
@@ -163,5 +166,24 @@ public class PartnersPagePOM extends UIActions {
     public String getCompanyId(){
         String editedCompanyId = getDriver().findElement(companyId).getAttribute("value");
         return editedCompanyId;
+    }
+
+    public void clickOnCloning(){
+        elementClick(foundNameActions);
+        elementClick(clonePartner);
+    }
+
+    public String getPartnerName(){
+        String partner = getDriver().findElement(partnerName).getAttribute("value");
+        return partner;
+    }
+
+    public void createNewPartnerByClone(){
+        clear(partnerName);
+        setText(partnerName, testData.getClonePartnerName(), false);
+        setText(partnerId, testData.getClonePartnerId(), true);
+        setText(companyNumber, testData.getCompanyNumber(), true);
+        elementClick(savePartner);
+        backToListView();
     }
 }

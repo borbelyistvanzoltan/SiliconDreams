@@ -4,5 +4,7 @@
 	"createdPartnerName" : "Teszt-Partner",
 	"companyNumber" : "05-09-024535",
 	"privatePartnerName" : "Teszt Ember",
-	"editedCompanyId" : "TK120000"
+	"editedCompanyId" : "TK120000",
+	"clonePartnerName" : "TESZT KFT - TC06",
+	"clonePartnerId" : "TC06"
 }

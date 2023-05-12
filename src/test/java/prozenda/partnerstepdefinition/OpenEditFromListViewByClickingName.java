@@ -16,7 +16,7 @@ public class OpenEditFromListViewByClickingName extends UIActions {
     Pages pages = new Pages();
     String companyId;
 
-    @Given("Click on created partner name")
+    @Then("Click on created partner name")
     public void openEditByClickingName(){
         pages.getPartnersPagePOM().filterByName(testData.getCreatedPartnerName());
         pages.getPartnersPagePOM().clickOnTheCreatedPartnerName();
@@ -34,7 +34,7 @@ public class OpenEditFromListViewByClickingName extends UIActions {
         }
     }
 
-    @Given ("Edit the company id")
+    @Then ("Edit the company id")
     public void editCompanyId(){
         companyId = pages.getPartnersPagePOM().getCompanyId();
         pages.getPartnersPagePOM().editCompanyId();
