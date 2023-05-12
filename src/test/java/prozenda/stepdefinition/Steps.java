@@ -38,8 +38,6 @@ public class Steps {
         }
     }
 
-    @BeforeAll
-    @AfterAll
     public static void afterClear() throws InterruptedException {
         setup();
         pages.getLoginPagePOM().navigate();
