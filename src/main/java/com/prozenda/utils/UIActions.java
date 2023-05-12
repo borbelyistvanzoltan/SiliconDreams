@@ -10,8 +10,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.awt.*;
 import java.io.ByteArrayInputStream;
 import java.io.FileReader;
 import static com.prozenda.utils.WaitEnum.*;
@@ -58,7 +56,7 @@ public class UIActions extends AbstractPage {
                 if (clear)
                     webElement.clear();
                 try{
-                    Thread.sleep(2000);
+                    Thread.sleep(4000);
                 }catch (Exception e){
                     e.printStackTrace();
                 }

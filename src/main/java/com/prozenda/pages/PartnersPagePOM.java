@@ -60,6 +60,7 @@ public class PartnersPagePOM extends UIActions {
     }
 
     public String getSuccessfulSaveMessage(){
+        waitUntil(ExpectedConditions.visibilityOfElementLocated(successfulSaveMessage));
         getDriver().findElement(successfulSaveMessage);
         String message = getDriver().findElement(successfulSaveMessage).getAttribute("textContent");
         elementClick(backToPartnerList);
