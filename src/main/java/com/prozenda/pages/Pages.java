@@ -16,6 +16,7 @@ public class Pages {
     private HelpPagePOM helpPagePOM;
     private PartnersPagePOM partnersPagePOM;
     private UsersPermission usersPermissionPOM;
+    private ReceiptPagePOM receiptPagePOM;
 
     public LoginPagePOM getLoginPagePOM() {
         if (loginPagePOM == null){
@@ -111,5 +112,13 @@ public class Pages {
         }
 
         return usersPermissionPOM;
+    }
+
+    public ReceiptPagePOM getReceiptPagePOM() {
+        if (receiptPagePOM == null){
+            receiptPagePOM = new ReceiptPagePOM();
+        }
+
+        return receiptPagePOM;
     }
 }

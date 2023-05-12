@@ -22,4 +22,15 @@ public class MainPageSteps {
     public void navigateToSettingsGeneralPage() {
         pages.getMainPagePOM().navigateToSettingsGeneralPage();
     }
+
+    @Then("Click on Sale on the left menu")
+    public void ClickOnSaleOnTheLeftMenu() {
+        pages.getMainPagePOM().clickOnSaleOnTheLeftMenu();
+        pages.getMainPagePOM().waitForLoadingReceipts();
+    }
+
+    @Then("Click on New customer receipt")
+    public void ClickOnNewCustomerReceipt() {
+        pages.getMainPagePOM().clickOnNewCustomerReceipt();
+    }
 }

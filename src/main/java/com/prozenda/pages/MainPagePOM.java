@@ -37,4 +37,16 @@ public class MainPagePOM extends AbstractPage {
         elementClick(products);
         elementClick(newProductButton);
     }
+
+    public void clickOnSaleOnTheLeftMenu() {
+        getDriver().findElement(MainPage.saleButton).click();
+    }
+
+    public void clickOnNewCustomerReceipt() {
+        getDriver().findElement(MainPage.newCustomerReceiptButton).click();
+    }
+
+    public void waitForLoadingReceipts() {
+        waitUntil(ExpectedConditions.visibilityOfElementLocated(MainPage.newCustomerReceiptButton));
+    }
 }
