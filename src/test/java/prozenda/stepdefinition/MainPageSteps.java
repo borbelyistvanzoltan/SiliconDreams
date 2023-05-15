@@ -49,4 +49,9 @@ public class MainPageSteps {
     public void clickOnNewCustomerReceiptInNewButtonSubMenu() {
         pages.getMainPagePOM().clickOnNewCustomerReceiptInNewButtonSubMenu();
     }
+
+    @Given("Navigate to list view")
+    public void navigateToListView() {
+        pages.getMainPagePOM().navigateToListView();
+    }
 }

@@ -60,6 +60,4 @@ public class ReceiptPagePOM extends AbstractPage {
     public void assertFormSavedSuccessfully() {
         waitUntil(ExpectedConditions.visibilityOfElementLocated(ReceiptPage.successMessage));
     }
-
-
 }

@@ -72,5 +72,10 @@ public class CreateReceipt extends UIActions {
         pages.getReceiptPagePOM().assertFormSavedSuccessfully();
     }
 
+    @When("Click on + button in list view")
+    public void clickOnPlusButtonInListView() {
+        pages.getCustomerReceiptListViewPagePOM().clickOnPlusButtonInListView();
+
+    }
 
 }

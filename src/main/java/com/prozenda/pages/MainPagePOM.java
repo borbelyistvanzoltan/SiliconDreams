@@ -1,9 +1,6 @@
 package com.prozenda.pages;
 
-import com.prozenda.selectors.GeneralPage;
-import com.prozenda.selectors.LogsPage;
-import com.prozenda.selectors.MainPage;
-import com.prozenda.selectors.NotificationSettingsPage;
+import com.prozenda.selectors.*;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -69,5 +66,11 @@ public class MainPagePOM extends AbstractPage {
         Actions a = new Actions(getDriver());
         a.moveToElement(element).perform();
         a.click(element).perform();
+    }
+
+    public void navigateToListView() {
+        elementClick(saleButton);
+        elementClick(vevoszamlak);
+        waitUntil(ExpectedConditions.visibilityOfElementLocated(CustomerReceiptListViewPage.plusButton));
     }
 }

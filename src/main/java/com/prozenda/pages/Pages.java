@@ -17,6 +17,7 @@ public class Pages {
     private PartnersPagePOM partnersPagePOM;
     private UsersPermission usersPermissionPOM;
     private ReceiptPagePOM receiptPagePOM;
+    private CustomerReceiptListViewPagePOM customerReceiptListViewPagePOM;
 
     public LoginPagePOM getLoginPagePOM() {
         if (loginPagePOM == null){
@@ -120,5 +121,13 @@ public class Pages {
         }
 
         return receiptPagePOM;
+    }
+
+    public CustomerReceiptListViewPagePOM getCustomerReceiptListViewPagePOM() {
+        if (customerReceiptListViewPagePOM == null){
+            customerReceiptListViewPagePOM = new CustomerReceiptListViewPagePOM();
+        }
+
+        return customerReceiptListViewPagePOM;
     }
 }
