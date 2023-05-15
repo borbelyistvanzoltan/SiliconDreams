@@ -4,6 +4,7 @@ import com.prozenda.pages.Pages;
 import com.prozenda.utils.UIActions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.qameta.allure.Allure;
 import io.qameta.allure.model.Status;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -70,4 +71,6 @@ public class CreateReceipt extends UIActions {
     public void assertFormSavedSuccessfully() {
         pages.getReceiptPagePOM().assertFormSavedSuccessfully();
     }
+
+
 }

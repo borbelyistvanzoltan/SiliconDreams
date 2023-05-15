@@ -3,6 +3,7 @@ package prozenda.stepdefinition;
 import com.prozenda.pages.Pages;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class MainPageSteps {
 
@@ -32,5 +33,20 @@ public class MainPageSteps {
     @Then("Click on New customer receipt")
     public void ClickOnNewCustomerReceipt() {
         pages.getMainPagePOM().clickOnNewCustomerReceipt();
+    }
+
+    @When("Move over New button")
+    public void moveOverNewButton() {
+        pages.getMainPagePOM().moveOverNewButton();
+    }
+
+    @When("Move over Sale in New button sub menu")
+    public void moveOverSaleInNewButtonSubMenu() {
+        pages.getMainPagePOM().moveOverSaleButton();
+    }
+
+    @When("Click on New customer receipt in New button sub menu")
+    public void clickOnNewCustomerReceiptInNewButtonSubMenu() {
+        pages.getMainPagePOM().clickOnNewCustomerReceiptInNewButtonSubMenu();
     }
 }
