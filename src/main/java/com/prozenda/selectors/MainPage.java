@@ -24,5 +24,4 @@ public class MainPage {
     public static final By vevoszamlak = By.xpath("/html/body/div[3]/div/div[1]/div[2]/div/ul/li[7]/div/ul/li[7]/a/span");
 
 
-
 }

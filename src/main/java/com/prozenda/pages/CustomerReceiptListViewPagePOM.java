@@ -12,4 +12,15 @@ public class CustomerReceiptListViewPagePOM extends AbstractPage {
     public void clickOnPlusButtonInListView() {
         elementClick(CustomerReceiptListViewPage.plusButton);
     }
+
+    public void clickOnFirstReceiptName() {
+        elementClick(CustomerReceiptListViewPage.name);
+    }
+
+    public void clickOnThreeDotsAndEditOnFirstReceipt() {
+        elementClick(CustomerReceiptListViewPage.threeDots);
+        waitUntil(ExpectedConditions.elementToBeClickable(CustomerReceiptListViewPage.edit));
+        elementClick(CustomerReceiptListViewPage.edit);
+    }
+
 }
