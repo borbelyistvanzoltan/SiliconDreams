@@ -23,4 +23,9 @@ public class CustomerReceiptListViewPagePOM extends AbstractPage {
         elementClick(CustomerReceiptListViewPage.edit);
     }
 
+    public void clickOnThreeDotsAndCloneOnFirstReceipt() {
+        elementClick(CustomerReceiptListViewPage.threeDots);
+        waitUntil(ExpectedConditions.elementToBeClickable(CustomerReceiptListViewPage.clone));
+        elementClick(CustomerReceiptListViewPage.clone);
+    }
 }

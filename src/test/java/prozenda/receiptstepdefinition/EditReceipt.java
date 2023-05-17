@@ -17,5 +17,4 @@ public class EditReceipt extends UIActions {
     public void clickOnThreeDotsAndEditOnFirstReceipt() {
         pages.getCustomerReceiptListViewPagePOM().clickOnThreeDotsAndEditOnFirstReceipt();
     }
-
 }
