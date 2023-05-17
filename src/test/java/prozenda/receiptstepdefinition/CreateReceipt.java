@@ -1,6 +1,7 @@
 package prozenda.receiptstepdefinition;
 
 import com.prozenda.pages.Pages;
+import com.prozenda.selectors.CustomerReceiptListViewPage;
 import com.prozenda.utils.UIActions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -75,7 +76,13 @@ public class CreateReceipt extends UIActions {
     @When("Click on + button in list view")
     public void clickOnPlusButtonInListView() {
         pages.getCustomerReceiptListViewPagePOM().clickOnPlusButtonInListView();
-
     }
+
+    @Then("Navigate back to list view")
+    public void navigateBackToListView() {
+        pages.getReceiptPagePOM().navigateBackToListView();
+        waitUntil(ExpectedConditions.visibilityOfElementLocated(CustomerReceiptListViewPage.plusButton));
+    }
+
 
 }

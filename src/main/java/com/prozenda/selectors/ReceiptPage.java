@@ -22,4 +22,5 @@ public class ReceiptPage {
     public static final By raktarField = By.name("items[0][raktarbol]");
     public static final By successMessage = By.id("swal2-title");
 
+    public static final By backToListViewButton = By.cssSelector("button.d-flex:nth-child(4)");
 }

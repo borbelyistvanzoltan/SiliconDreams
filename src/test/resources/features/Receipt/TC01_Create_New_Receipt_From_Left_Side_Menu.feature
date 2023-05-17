@@ -17,3 +17,6 @@ Feature: Receipt
     Then Select "Központi raktár"
     Then Save form
     Then Assert form saved successfully
+    Then Navigate back to list view
+    Then Click on three dots and delete newly created receipt
+    Then Assert receipt deleted successfully

@@ -1,6 +1,6 @@
 Feature: Receipt
 
-  Scenario: Create new customer receipt from list view with plus button with mandatory fields, assert successfully response message
+  Scenario: Create and delete customer receipt by three dots
 
     Given user is on login page
     Given login with email and password
