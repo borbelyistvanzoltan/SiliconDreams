@@ -7,7 +7,6 @@ import static com.prozenda.selectors.MainPage.newButton;
 import static com.prozenda.selectors.PartnersPage.*;
 import static com.prozenda.selectors.PartnersPage.partnerName;
 import static com.prozenda.selectors.UsersPermission.*;
-import static com.prozenda.utils.WaitEnum.*;
 
 /**
  * @author Rebeka Alajtner
@@ -107,14 +106,6 @@ public class PartnersPagePOM extends UIActions {
 
     public void saveTheNewPartner(){
         elementClick(savePartner);
-    }
-
-    public void waitToAlert() {
-        if (waitToElement(ExpectedConditions.alertIsPresent()) == ELEMENTLOCATED){
-            Alert alert;
-            alert = getDriver().switchTo().alert();
-            alert.accept();
-        }
     }
     public String getErrorList(){
         String list = getDriver().findElement(errorAlert).getAttribute("textContent");

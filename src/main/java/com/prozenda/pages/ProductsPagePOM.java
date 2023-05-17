@@ -39,8 +39,8 @@ public class ProductsPagePOM extends AbstractPage {
         getDriver().findElement(column).sendKeys(keyword);
     }
 
-    public void checkProductCreated(String title) {
-        Assert.assertTrue(getDriver().findElement(productsTable).getText().contains(title));
+    public void checkProductCreated(String title,boolean shouldCreated) {
+        Assert.assertEquals(getDriver().findElement(productsTable).getText().contains(title), shouldCreated);
     }
 
     public void clickDeleteButton() {

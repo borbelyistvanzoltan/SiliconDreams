@@ -13,9 +13,9 @@ public class ProductsPageSteps {
         pages.getProductsPagePOM().filterProduct(keyword, ProductsPagePOM.FilterColumn.valueOf(column).getFilterColumnElement());
     }
 
-    @Then("check {string} product created")
-    public void checkProductCreated(String title) {
-        pages.getProductsPagePOM().checkProductCreated(title);
+    @Then("check {string} product created: {string}")
+    public void checkProductCreated(String title, String shouldCreated) {
+        pages.getProductsPagePOM().checkProductCreated(title, Boolean.parseBoolean(shouldCreated));
     }
 
     @Then("delete created products")

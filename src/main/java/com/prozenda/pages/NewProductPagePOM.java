@@ -57,7 +57,18 @@ public class NewProductPagePOM extends AbstractPage {
         getDriver().findElement(saveButton).click();
     }
 
+    public String getErrorList(){
+        String list = getDriver().findElement(errorAlert).getAttribute("textContent");
+        return list;
+    }
+
     public void confirmDataSheetSelection() {
         elementClick(confirmDataSheetSelectorButton);
+    }
+
+    public void createNewProduct(String title, By typeElement, By amountUnitElement) {
+        fillProductTitle(title);
+        clickType(typeElement);
+        selectAmountUnit(amountUnitElement);
     }
 }
