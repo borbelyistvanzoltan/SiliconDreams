@@ -3,10 +3,15 @@ package com.prozenda.pages;
 
 import com.prozenda.drivermanager.DriverManager;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+
+import static com.prozenda.utils.UIActions.waitToElement;
+import static com.prozenda.utils.WaitEnum.ELEMENTLOCATED;
 
 public class AbstractPage{
 
@@ -33,4 +38,11 @@ public class AbstractPage{
         }
     }
 
+    public void waitToAlert() {
+        if (waitToElement(ExpectedConditions.alertIsPresent()) == ELEMENTLOCATED){
+            Alert alert;
+            alert = getDriver().switchTo().alert();
+            alert.accept();
+        }
+    }
 }

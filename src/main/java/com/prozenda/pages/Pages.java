@@ -1,6 +1,11 @@
 package com.prozenda.pages;
 
 import com.prozenda.selectors.UsersPermission;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import static com.prozenda.pages.AbstractPage.getDriver;
+import static com.prozenda.pages.AbstractPage.waitUntil;
+import static com.prozenda.selectors.ControlPanelPage.allProductsButton;
 
 public class Pages {
 
