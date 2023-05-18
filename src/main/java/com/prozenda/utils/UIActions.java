@@ -70,9 +70,9 @@ public class UIActions extends AbstractPage {
             System.err.println("Another exception type!\n" + e.getMessage());
         }
     }
-    public ByteArrayInputStream takeScreenshot(){
-        ByteArrayInputStream screenshot = new ByteArrayInputStream(((TakesScreenshot) DriverManager.getInstance().getDriver()).getScreenshotAs(OutputType.BYTES));
-        return screenshot;
+    public static ByteArrayInputStream takeScreenshot(){
+
+        return new ByteArrayInputStream(((TakesScreenshot) DriverManager.getInstance().getDriver()).getScreenshotAs(OutputType.BYTES));
     }
 
     public static void waitForInput(By element, String attribute, int maxWaitTime){
