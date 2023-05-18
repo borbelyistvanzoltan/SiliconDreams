@@ -6,5 +6,11 @@
 	"privatePartnerName" : "Teszt Ember",
 	"editedCompanyId" : "TK120000",
 	"clonePartnerName" : "TESZT KFT - TC06",
-	"clonePartnerId" : "TC06"
+	"clonePartnerId" : "TC06",
+	"taxNumber" : "8438331009",
+	"customer" : "Teszt Elek",
+	"postalCode" : "4400",
+	"settlement" : "Nyíregyháza",
+	"publicSpaceName" : "Rákóczi",
+	"natureOfPublicSpace" : "utca"
 }

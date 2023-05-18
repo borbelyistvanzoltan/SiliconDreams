@@ -1,5 +1,6 @@
 package com.prozenda.pages;
 
+import com.prozenda.selectors.PartnersPage;
 import com.prozenda.utils.UIActions;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -59,16 +60,19 @@ public class PartnersPagePOM extends UIActions {
         elementClick(savePartner);
     }
 
-    public String getSuccessfulSaveMessage(){
+    public String getSuccessfulSaveMessage(By button){
         waitUntil(ExpectedConditions.visibilityOfElementLocated(successfulSaveMessage));
         getDriver().findElement(successfulSaveMessage);
         String message = getDriver().findElement(successfulSaveMessage).getAttribute("textContent");
-        elementClick(backToPartnerList);
+        elementClick(button);
         return message;
+    }
+    public String getSuccessfulSaveMessage(){
+        return getSuccessfulSaveMessage(backToList);
     }
 
     public void filterByName(String filteredName){
-        waitUntil(ExpectedConditions.elementToBeClickable(nameFilter));
+        waitToElement(ExpectedConditions.elementToBeClickable(nameFilter));
         setText(nameFilter, filteredName, true);
     }
 
@@ -117,6 +121,7 @@ public class PartnersPagePOM extends UIActions {
         }
     }
     public String getErrorList(){
+        waitToElement(ExpectedConditions.attributeContains(errorAlert, "outerHTML", "form-error alert alert-danger"));
         String list = getDriver().findElement(errorAlert).getAttribute("textContent");
         return list;
     }
@@ -162,7 +167,9 @@ public class PartnersPagePOM extends UIActions {
     public void backToListView(){
         elementClick(backToList);
     }
-
+    public void backToEdit (){
+        elementClick(backToEdit);
+    }
     public String getCompanyId(){
         String editedCompanyId = getDriver().findElement(companyId).getAttribute("value");
         return editedCompanyId;
@@ -185,5 +192,55 @@ public class PartnersPagePOM extends UIActions {
         setText(companyNumber, testData.getCompanyNumber(), true);
         elementClick(savePartner);
         backToListView();
+    }
+
+    public void navigateNewCustomer(){
+        elementClick(partnersModule);
+        elementClick(newCustomer);
+        elementClick(partnerFormListOk);
+    }
+
+    public void requiredFieldsCheck(boolean partnerid, boolean name) {
+        setText(partnerName, testData.getPartnerID(), true);
+        elementClick(createdPartner);
+        waitForInput(companyNumber, "defaultValue", 5000);
+        if (name == false) {
+            clear(partnerName);
+            elementClick(savePartner);
+        } else if (partnerid == false) {
+            clear(partnerId);
+            elementClick(savePartner);
+        }
+    }
+
+    public void fillPartnerId(){
+        setText(partnerId, testData.getPartnerID(), true);
+    }
+
+    public void checkMembership(boolean domestic, boolean eu, boolean nonEu){
+        clear(taxNumber);
+        scrollByPixel(1000);
+        if(domestic){
+            elementClick(membership_domestic);
+        } else if(eu){
+            elementClick(membership_eu);
+        } else if (nonEu){
+            elementClick(membership_nonEu);
+        }
+        elementClick(savePartner);
+    }
+
+    public boolean checkErrorAlertVisible(){
+        if (waitToElement(ExpectedConditions.attributeContains(errorAlert, "outerHTML", "form-error alert alert-danger")) == TIMEOUT){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public void saveWithoutType( ){
+        scrollByPixel(1000);
+        elementClick(typeCustomer);
+        elementClick(savePartner);
     }
 }
