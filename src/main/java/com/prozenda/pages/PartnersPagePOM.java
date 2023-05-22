@@ -10,7 +10,7 @@ import static com.prozenda.selectors.MainPage.newButton;
 import static com.prozenda.selectors.PartnersPage.*;
 import static com.prozenda.selectors.PartnersPage.partnerName;
 import static com.prozenda.selectors.UsersPermission.*;
-
+import static com.prozenda.utils.WaitEnum.*;
 /**
  * @author Rebeka Alajtner
  * @created 21/04/2023 - 13:25
