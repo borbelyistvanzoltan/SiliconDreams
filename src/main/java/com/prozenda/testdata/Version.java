@@ -9,6 +9,7 @@ import org.json.simple.JSONObject;
  * @project SiliconDreams
  */
 public class Version {
+
     public Version init(JSONObject json){
         ObjectMapper objectMapper = new ObjectMapper();
         try {
@@ -23,4 +24,5 @@ public class Version {
     public String getVersionNumber() {
         return versionNumber;
     }
+
 }

@@ -4,9 +4,6 @@ import com.prozenda.pages.Pages;
 import com.prozenda.utils.UIActions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.qameta.allure.Allure;
-import io.qameta.allure.model.Status;
-import org.junit.Assert;
 
 /**
  * @author Rebeka Alajtner
@@ -26,16 +23,7 @@ public class NewPrivatePartnerFromMenu extends UIActions {
     public void validationTheErrorList(){
         pages.getPartnersPagePOM().saveTheNewPartner();
         pages.getPartnersPagePOM().waitToAlert();
-        if (pages.getPartnersPagePOM().getErrorList().equals("A(z) név megadása kötelező!A(z) partnerkód megadása kötelező!")){
-            System.out.println("The error alert is contains the required fields!");
-            Allure.step("The error alert is visible - contains the required fields!", Status.PASSED);
-        }else if (pages.getPartnersPagePOM().getErrorList().equals("")) {
-            Allure.step("The error alert isn't contains the required fields!", Status.FAILED);
-            Allure.addAttachment("Error alert" + pages.getPartnersPagePOM().getErrorList(), takeScreenshot());
-        } else{
-            Allure.step("The error alert isn't matches the required fields!", Status.FAILED);
-            Allure.addAttachment("Error alert" + pages.getPartnersPagePOM().getErrorList(), takeScreenshot());
-        }
+        pages.getPartnersPagePOM().getErrorList("A(z) név megadása kötelező!A(z) partnerkód megadása kötelező!", "The error alert is contains the required fields!", "The error alert isn't matches the required fields!","The error alert isn't contains the required fields!");
     }
 
     @Then("Entering the personal data")
@@ -47,13 +35,6 @@ public class NewPrivatePartnerFromMenu extends UIActions {
     @Then("Created new private partner validation")
     public void createdPartnerValidation(){
         pages.getPartnersPagePOM().filterByName(testData.getPrivatePartnerName());
-        if (pages.getPartnersPagePOM().getFoundPrivatePartnerName().equals(testData.getPrivatePartnerName())){
-            System.out.println("Successful created the private partner!");
-            Allure.step("Successful created the private partner!", Status.PASSED);
-        } else {
-            Assert.fail("Unsuccessful created the private partner!");
-            Allure.step("Unsuccessful created the private partner!", Status.FAILED);
-            Allure.addAttachment("Create new private partner", takeScreenshot());
-        }
+        pages.getPartnersPagePOM().getFoundPrivatePartnerName();
     }
 }
