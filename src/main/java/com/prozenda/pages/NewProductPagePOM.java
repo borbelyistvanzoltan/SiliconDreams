@@ -7,8 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 
 import static com.prozenda.selectors.NewProductPage.*;
-import static com.prozenda.utils.UIActions.elementClick;
-import static com.prozenda.utils.UIActions.takeScreenshot;
+import static com.prozenda.utils.UIActions.*;
 
 public class NewProductPagePOM extends AbstractPage {
 
@@ -44,7 +43,7 @@ public class NewProductPagePOM extends AbstractPage {
     }
 
     public void fillProductTitle(String productTitle) {
-        getDriver().findElement(productTitleInput).sendKeys(productTitle);
+        setText(productTitleInput, productTitle, true);
     }
 
     public void clickType(By typeElement) {
@@ -52,12 +51,12 @@ public class NewProductPagePOM extends AbstractPage {
     }
 
     public void selectAmountUnit(By amountUnitElement) {
-        getDriver().findElement(amountUnitElement).click();
+        elementClick(amountUnitElement);
     }
 
     public void saveProduct() throws InterruptedException {
         wait(3000);
-        getDriver().findElement(saveButton).click();
+        elementClick(saveButton);
     }
 
     public String getErrorList(){
@@ -82,9 +81,10 @@ public class NewProductPagePOM extends AbstractPage {
         elementClick(confirmDataSheetSelectorButton);
     }
 
-    public void createNewProduct(String title, By typeElement, By amountUnitElement) {
+    public void createNewProduct(String title, By typeElement, By amountUnitElement) throws InterruptedException {
         fillProductTitle(title);
         clickType(typeElement);
         selectAmountUnit(amountUnitElement);
+        saveProduct();
     }
 }

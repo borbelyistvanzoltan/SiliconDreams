@@ -90,4 +90,8 @@ public class ProductsPagePOM extends AbstractPage {
     public void navigateToNewProductPageFromListView() {
         elementClick(newProductButton);
     }
+
+    public void clickFirstProductName() {
+        elementClick(firstProductName);
+    }
 }

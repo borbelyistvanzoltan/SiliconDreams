@@ -17,4 +17,5 @@ public class ProductsPage {
     public static final By importSuccessDiv = By.className("import-success");
     public static final By jumpToProductsListButton = By.xpath("/html/body/div[3]/div/div[2]/div[1]/div/div[2]/div/div/div[1]/div[1]/div/div/fieldset/div/div/div[2]/a");
     public static final By newProductButton = By.xpath("/html/body/div[3]/div/div[2]/div[1]/div/div[1]/div[2]/div[1]/div[1]/a");
+    public static final By firstProductName = By.xpath("/html/body/div[3]/div/div[2]/div[1]/div/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr/td[3]/a");
 }

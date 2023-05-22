@@ -1,4 +1,4 @@
-package prozenda.stepdefinition;
+package prozenda.productstepdefinition;
 
 import com.prozenda.pages.NewProductPagePOM;
 import com.prozenda.pages.Pages;
@@ -35,7 +35,7 @@ public class NewProductPageSteps extends UIActions {
     }
 
     @Then("Create new product with Title: {string}, Type: {string}, Amount units: {string}")
-    public void createNewProduct(String title, String type, String amountUnits) {
+    public void createNewProduct(String title, String type, String amountUnits) throws InterruptedException {
         pages.getNewProductPagePOM().createNewProduct(title, NewProductPagePOM.ProductType.valueOf(type).getTypeElement(),
                 NewProductPagePOM.AmountUnit.valueOf(amountUnits).getAmountUnitElement());
     }

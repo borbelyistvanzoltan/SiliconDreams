@@ -10,5 +10,5 @@ Feature: Product
     Then save new product
     Then navigate back to All Products page
     Then filter "ProzendaTermek1" on "TITLE" column filter
-    Then check "ProzendaTermek1" product created: "true"
+    Then check "ProzendaTermek1" product is exist: "true"
     Then delete created products

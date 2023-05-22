@@ -13,4 +13,4 @@ Feature: Product
     Then Validation the error list while missing type and amount units fields
     Then navigate to All Products page
     Then filter "ProzendaTermek1" on "TITLE" column filter
-    Then check "ProzendaTermek1" product created: "false"
+    Then check "ProzendaTermek1" product is exist: "false"
