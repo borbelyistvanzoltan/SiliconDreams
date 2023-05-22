@@ -9,5 +9,6 @@ public enum WaitEnum {
     ELEMENTLOCATED,
     NOALERT,
     TIMEOUT,
-    EXCEPTION
+    EXCEPTION,
+    CLICKINTERCEPTED
 }

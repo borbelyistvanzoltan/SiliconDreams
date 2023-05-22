@@ -30,6 +30,7 @@ public class PartnersPage {
     public static final By filterResults = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]");
 
     // New partner basic data
+    public static final By basicData = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[2]/div[2]/div[1]/ul[1]/li[1]/a[1]");
     public static final By partnerName = By.id("partner_name");
     public static final By foundPrivatePartnerName = By.xpath("//*[ text() = 'Teszt Ember']");
     public static final By savePartner = By.id("save_btn");
@@ -39,7 +40,11 @@ public class PartnersPage {
     public static final By successfulSaveMessage = By.id("swal2-title");
     public static final By backToPartnerList = By.xpath("//span[contains(text(),'Vissza a listanézethez')]");
     public static final By errorAlert =  By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]");
-
+    public static final By taxNumber= By.name("adoszam");
+    public static final By typeCustomer = By.xpath("//label[contains(text(),'Vevő')]/span");
+    public static final By membership_domestic = By.xpath("//label[contains(text(),'Belföld')]/span");
+    public static final By membership_eu = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[10]/div[2]/div[1]/div[2]/div[2]/label[1]/span[1]");
+    public static final By membership_nonEu = By.xpath("//*[ text() = 'EU-n kivüli']/span");
     // Edit partner
     public static final By editHeaderTitle = By.xpath("//h3[contains(text(),'Szerkesztés:')]");
     public static final By foundNameActions = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/a[1]");
@@ -50,5 +55,7 @@ public class PartnersPage {
     public static final By deleteMessageBox = By.xpath("/html/body/div[12]/span[3]");
     public static final By createdPartner = By.xpath("//*[ text() = 'TESZT-PARTNER Kft.']");
     public static final By backToList = By.xpath("//*[ text() = 'Vissza a listanézethez']");
+    public static final By backToEdit = By.xpath("//*[ text() = 'Tovább a szerkesztéshez']");
+    public static final By continueEdit = By.xpath("//*[ text() = 'Szerkesztés folytatása']");
 }
 

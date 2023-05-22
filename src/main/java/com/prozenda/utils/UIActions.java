@@ -7,6 +7,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,7 +24,7 @@ public class UIActions extends AbstractPage {
     public static TestData testData;
     public static boolean isElementVisible(By element) {
         try {
-            waitUntil(ExpectedConditions.elementToBeClickable(element));
+            waitToElement(ExpectedConditions.elementToBeClickable(element));
             return true;
         } catch (TimeoutException e) {
             System.err.println("TimeoutException, the element is not visible!\n" + e.getMessage());
@@ -37,7 +38,7 @@ public class UIActions extends AbstractPage {
     public static void elementClick(By _element) {
         try {
             if (isElementVisible(_element)) {
-                waitUntil(ExpectedConditions.elementToBeClickable(_element));
+                waitToElement(ExpectedConditions.elementToBeClickable(_element));
                 DriverManager.getInstance().getDriver().findElement(_element).click();
             }
         } catch (NoSuchElementException e) {
@@ -95,16 +96,18 @@ public class UIActions extends AbstractPage {
         }
     }
 
-    public static WaitEnum waitToElement(ExpectedCondition condition){
+    public static WaitEnum waitToElement(ExpectedCondition condition) {
         try {
             WebDriverWait wait = new WebDriverWait(getDriver(), timeout);
             wait.until(condition);
             return ELEMENTLOCATED;
         } catch (NoAlertPresentException e) {
-             return NOALERT;
-        } catch (TimeoutException e){
+            return NOALERT;
+        } catch (TimeoutException e) {
             return TIMEOUT;
-        } catch (Exception e){
+        } catch (ElementClickInterceptedException e){
+            return CLICKINTERCEPTED;
+        }catch (Exception e){
             Assert.fail("The web element could not be located");
             return EXCEPTION;
         }
@@ -123,6 +126,15 @@ public class UIActions extends AbstractPage {
         } catch (Exception e) {
             System.err.println("Another exception type!\n" + e.getMessage());
         }
+    }
+
+    public static void scrollByPixel(int x, int y){
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        js.executeScript("window.scrollBy(" + x + "," + y + ")");
+    }
+
+    public static void scrollByPixel(int y){
+        scrollByPixel(0, y);
     }
 
 }
