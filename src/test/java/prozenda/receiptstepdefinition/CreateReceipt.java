@@ -1,9 +1,11 @@
 package prozenda.receiptstepdefinition;
 
 import com.prozenda.pages.Pages;
+import com.prozenda.selectors.CustomerReceiptListViewPage;
 import com.prozenda.utils.UIActions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.qameta.allure.Allure;
 import io.qameta.allure.model.Status;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -70,4 +72,17 @@ public class CreateReceipt extends UIActions {
     public void assertFormSavedSuccessfully() {
         pages.getReceiptPagePOM().assertFormSavedSuccessfully();
     }
+
+    @When("Click on + button in list view")
+    public void clickOnPlusButtonInListView() {
+        pages.getCustomerReceiptListViewPagePOM().clickOnPlusButtonInListView();
+    }
+
+    @Then("Navigate back to list view")
+    public void navigateBackToListView() {
+        pages.getReceiptPagePOM().navigateBackToListView();
+        waitUntil(ExpectedConditions.visibilityOfElementLocated(CustomerReceiptListViewPage.plusButton));
+    }
+
+
 }

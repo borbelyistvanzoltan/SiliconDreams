@@ -1,6 +1,6 @@
 Feature: Receipt
 
-  Scenario: Create receipt from left side menu with mandatory fields, assert successfull response message
+  Scenario: Create customer receipt without all mandatory fields
 
     Given user is on login page
     Given login with email and password
@@ -14,9 +14,5 @@ Feature: Receipt
     Then Select "Teszt számla" bizonylattomb
     Then Type "Prozenda" into customer field
     Then Type "Késztermék teszt" into item field
-    Then Select "Központi raktár"
     Then Save form
-    Then Assert form saved successfully
-    Then Navigate back to list view
-    Then Click on three dots and delete newly created receipt
-    Then Assert receipt deleted successfully
+    Then Asserting alert form

@@ -10,7 +10,6 @@ import static com.prozenda.selectors.MainPage.newButton;
 import static com.prozenda.selectors.PartnersPage.*;
 import static com.prozenda.selectors.PartnersPage.partnerName;
 import static com.prozenda.selectors.UsersPermission.*;
-import static com.prozenda.utils.WaitEnum.*;
 
 /**
  * @author Rebeka Alajtner
@@ -180,6 +179,7 @@ public class PartnersPagePOM extends UIActions {
             alert.accept();
         }
     }
+  
     public String getErrorList(String validAlert, String passLog, String failLogMatch, String failLogContain){
         waitToElement(ExpectedConditions.attributeContains(errorAlert, "outerHTML", "form-error alert alert-danger"));
         String list = getDriver().findElement(errorAlert).getAttribute("textContent");

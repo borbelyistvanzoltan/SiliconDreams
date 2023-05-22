@@ -1,12 +1,12 @@
 Feature: Receipt
 
-  Scenario: Create receipt from left side menu with mandatory fields, assert successfull response message
+  Scenario: Create and delete customer receipt by three dots
 
     Given user is on login page
     Given login with email and password
     Given Wait for loading main page
-    Then Click on Sale on the left menu
-    Then Click on New customer receipt
+    Given Navigate to list view
+    When Click on + button in list view
     Then Wait for loading data sheet chooser
     Then Select "Teszt Vevőszámla Adatlap" from dropdown list
     Then Click Ok button

@@ -1,7 +1,7 @@
 Feature: Product
 
-  @TC02
-  Scenario: Check that a user can create normal product from list view
+  @PRODUCT_TC02
+  Scenario: Check that a user can create normal product from new button
     Given user is on login page
     Then login with email and password
     Then navigate to New Product page from New button
@@ -9,5 +9,5 @@ Feature: Product
     Then save new product
     Then navigate back to All Products page
     Then filter "ProzendaTermek1" on "TITLE" column filter
-    Then check "ProzendaTermek1" product created
+    Then check "ProzendaTermek1" product is exist: "true"
     Then delete created products

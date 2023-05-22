@@ -1,12 +1,13 @@
 Feature: Receipt
 
-  Scenario: Create receipt from left side menu with mandatory fields, assert successfull response message
+  Scenario: Create receipt with New button with mandatory fields, assert successfully response message
 
     Given user is on login page
     Given login with email and password
     Given Wait for loading main page
-    Then Click on Sale on the left menu
-    Then Click on New customer receipt
+    When Move over New button
+    When Move over Sale in New button sub menu
+    When Click on New customer receipt in New button sub menu
     Then Wait for loading data sheet chooser
     Then Select "Teszt Vevőszámla Adatlap" from dropdown list
     Then Click Ok button

@@ -9,7 +9,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import static com.prozenda.selectors.MainPage.*;
 import static com.prozenda.selectors.ProductsPage.*;
+import static com.prozenda.selectors.ProductsPage.newProductButton;
+import static com.prozenda.utils.UIActions.elementClick;
 
 public class ProductsPagePOM extends AbstractPage {
 
@@ -36,8 +39,8 @@ public class ProductsPagePOM extends AbstractPage {
         getDriver().findElement(column).sendKeys(keyword);
     }
 
-    public void checkProductCreated(String title) {
-        Assert.assertTrue(getDriver().findElement(productsTable).getText().contains(title));
+    public void checkProductCreated(String title,boolean shouldCreated) {
+        Assert.assertEquals(getDriver().findElement(productsTable).getText().contains(title), shouldCreated);
     }
 
     public void clickDeleteButton() {
@@ -82,5 +85,13 @@ public class ProductsPagePOM extends AbstractPage {
         String currentAbsolutePath = currentRelativePath.toAbsolutePath().toString();
 
         return currentAbsolutePath + GetProperties.getProperty("importfile.path");
+    }
+
+    public void navigateToNewProductPageFromListView() {
+        elementClick(newProductButton);
+    }
+
+    public void clickFirstProductName() {
+        elementClick(firstProductName);
     }
 }

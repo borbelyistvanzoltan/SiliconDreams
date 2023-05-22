@@ -1,4 +1,4 @@
-package prozenda.stepdefinition;
+package prozenda.productstepdefinition;
 
 import com.prozenda.pages.Pages;
 import com.prozenda.pages.ProductsPagePOM;
@@ -13,9 +13,20 @@ public class ProductsPageSteps {
         pages.getProductsPagePOM().filterProduct(keyword, ProductsPagePOM.FilterColumn.valueOf(column).getFilterColumnElement());
     }
 
-    @Then("check {string} product created")
-    public void checkProductCreated(String title) {
-        pages.getProductsPagePOM().checkProductCreated(title);
+    @Then("check {string} product is exist: {string}")
+    public void checkProductCreated(String title, String shouldCreated) {
+        pages.getProductsPagePOM().checkProductCreated(title, Boolean.parseBoolean(shouldCreated));
+    }
+
+    @Then("Click on first product name")
+    public void openEditByClickingName(){
+        pages.getProductsPagePOM().clickFirstProductName();
+    }
+
+    @Then("edit product name to {string}")
+    public void editProductName(String name) throws InterruptedException {
+        pages.getNewProductPagePOM().fillProductTitle(name);
+        pages.getNewProductPagePOM().saveProduct();
     }
 
     @Then("delete created products")

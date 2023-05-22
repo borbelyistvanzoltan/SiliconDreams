@@ -22,9 +22,13 @@ public class ControlPanelPagePOM extends AbstractPage {
         getDriver().findElement(productToggle).click();
     }
 
+    public boolean isOpenProductsToggle() {
+
+        return getDriver().findElement(productToggle).getAttribute("class").contains("open");
+    }
+
     public void clickNewProductButton() {
         getDriver().findElement(newProductButton).click();
-        getDriver().findElement(selectDataSheetConfirmationButton).click();
     }
 
     public void clickAllProductsButton() {

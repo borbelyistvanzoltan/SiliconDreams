@@ -4,6 +4,8 @@ import com.prozenda.pages.Pages;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
+import static com.prozenda.selectors.ControlPanelPage.allProductsButton;
+
 public class LoginPageSteps {
 
     Pages pages = new Pages();
@@ -36,9 +38,17 @@ public class LoginPageSteps {
         pages.getNewProductPagePOM().confirmDataSheetSelection();
     }
 
+    @Then("navigate to New Product page from list view")
+    public void navigateToNewProductPageFromListView() {
+        pages.getProductsPagePOM().navigateToNewProductPageFromListView();
+        pages.getNewProductPagePOM().confirmDataSheetSelection();
+    }
+
     @Then("navigate to All Products page")
     public void navigateToAllProductsPage() {
-        pages.getControlPanelPagePOM().clickProductsToggle();
+        if(!pages.getControlPanelPagePOM().isOpenProductsToggle()) {
+            pages.getControlPanelPagePOM().clickProductsToggle();
+        }
         pages.getControlPanelPagePOM().clickAllProductsButton();
     }
 
