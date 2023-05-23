@@ -1,8 +1,6 @@
 package com.prozenda.pages;
 
 import com.prozenda.utils.UIActions;
-import io.cucumber.java.an.E;
-import io.cucumber.java.en.Then;
 import io.qameta.allure.Allure;
 import io.qameta.allure.model.Status;
 import org.junit.Assert;
@@ -232,9 +230,15 @@ public class PartnersPagePOM extends UIActions {
         elementClick(partnerFormListOk);
     }
 
-    public void createPrivatePartnerFromListView(){
+    public void createPartnerFromListView(boolean customer, boolean supplier, boolean privatePerson){
         elementClick(plusButton);
-        elementClick(plusButtonNewPrivatePartner);
+        if(customer){
+            elementClick(plusButtonNewCustomerPartner);
+        } else if(supplier){
+            elementClick(plusButtonNewSupplierPartner);
+        } else if(privatePerson){
+            elementClick(plusButtonNewPrivatePartner);
+        }
         elementClick(partnerFormListOk);
     }
 
