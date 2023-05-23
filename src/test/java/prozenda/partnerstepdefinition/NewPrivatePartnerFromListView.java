@@ -14,6 +14,6 @@ public class NewPrivatePartnerFromListView {
     @Then("Navigate to the new private partner from list view")
     public void navigateToNewPrivatePartnerFromListView(){
         pages.getPartnersPagePOM().navigateToPartnersModule();
-        pages.getPartnersPagePOM().createPrivatePartnerFromListView();
+        pages.getPartnersPagePOM().createPartnerFromListView(false, false, true);
     }
 }
