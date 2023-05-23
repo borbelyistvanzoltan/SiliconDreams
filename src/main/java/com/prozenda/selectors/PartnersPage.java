@@ -23,6 +23,7 @@ public class PartnersPage {
     public static final By partnersGridCell = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[3]");
     public static final By newPartner = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
     public static final By newCustomer = By.xpath("//*[ text() = 'Új vevő']");
+    public static final By newSupplier = By.xpath("//*[ text() = 'Új szállító']");
     public static final By partnerFormListOk = By.xpath("//*[ text() = 'OK']");
     public static final By plusButton = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
     public static final By plusButtonNewPrivatePartner = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]");

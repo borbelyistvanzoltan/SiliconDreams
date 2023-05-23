@@ -1,8 +1,9 @@
 Feature: Partners
 
-  @TC08
-  Scenario: Create a new customer from the left menu (validation - save as empty), required fields check.
-    Given Navigate to new customer from left menu
+  @TC09
+  Scenario: Create new customer from New button with required field validation
+    Given Navigate to the partners module and click the all partners
+    Then Create new customer from New button
     Then Check error message
     Then Check required fields - partner name
     Then Check required fields - partner id

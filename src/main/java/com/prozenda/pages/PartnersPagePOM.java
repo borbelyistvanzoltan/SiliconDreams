@@ -1,6 +1,8 @@
 package com.prozenda.pages;
 
 import com.prozenda.utils.UIActions;
+import io.cucumber.java.an.E;
+import io.cucumber.java.en.Then;
 import io.qameta.allure.Allure;
 import io.qameta.allure.model.Status;
 import org.junit.Assert;
@@ -216,10 +218,17 @@ public class PartnersPagePOM extends UIActions {
         return foundName;
     }
 
-    public void createPrivatePartnerFromNewButton(){
+    public void createPartnerFromNewButton(boolean privatePerson, boolean customer, boolean supplier){
+        waitToElement(ExpectedConditions.elementToBeClickable(nameFilter));
         elementClick(newButton);
         elementClick(newListPartnerElement);
-        elementClick(privatePartner);
+        if (privatePerson){
+            elementClick(privatePartner);
+        } else if (customer){
+            elementClick(newCustomer);
+        } else if (supplier){
+            elementClick(newSupplier);
+        }
         elementClick(partnerFormListOk);
     }
 

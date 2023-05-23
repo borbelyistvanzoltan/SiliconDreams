@@ -63,7 +63,13 @@ public class CreateNewCustomerFromLeftMenu extends UIActions {
     @Then ("Check required fields - type")
     public void checkType(){
         pages.getPartnersPagePOM().saveWithoutType();
-        pages.getPartnersPagePOM().getErrorList("A(z) típus megadása kötelező!", "The error alert is contains the required fields! - type","The partner type is optional!","The partner type is optional!");
+        pages.getPartnersPagePOM().getErrorList("A(z) tipus megadása kötelező!", "The error alert is contains the required fields! - type","The partner type is optional!","The partner type is optional!");
         pages.getPartnersPagePOM().clickAllPartner();
+    }
+
+    @Then("Check created new customer")
+    public void checkCreatedNewCustomer(){
+        pages.getPartnersPagePOM().filterByName(testData.getCreatedPartnerName());
+        pages.getPartnersPagePOM().checkTheCreatedPartner();
     }
 }
