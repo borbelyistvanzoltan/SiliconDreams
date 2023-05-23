@@ -14,6 +14,6 @@ public class NewPrivatePartnerFromNewButton extends UIActions {
 
     @Given("Navigate to the new private partner from New button")
     public void navigateToNewPrivatePerson(){
-        pages.getPartnersPagePOM().createPrivatePartnerFromNewButton();
+        pages.getPartnersPagePOM().createPartnerFromNewButton(true, false, false);
     }
 }
