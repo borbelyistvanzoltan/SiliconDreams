@@ -23,6 +23,11 @@ public class ProductsPageSteps {
         pages.getProductsPagePOM().clickFirstProductName();
     }
 
+    @Then("Edit the product from actions menu")
+    public void editProductFromActionMenu() {
+        pages.getProductsPagePOM().editProductFromActions();
+    }
+
     @Then("edit product name to {string}")
     public void editProductName(String name) throws InterruptedException {
         pages.getNewProductPagePOM().fillProductTitle(name);

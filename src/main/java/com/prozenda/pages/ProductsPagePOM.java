@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static com.prozenda.selectors.MainPage.*;
 import static com.prozenda.selectors.ProductsPage.*;
 import static com.prozenda.selectors.ProductsPage.newProductButton;
 import static com.prozenda.utils.UIActions.elementClick;
@@ -72,6 +71,7 @@ public class ProductsPagePOM extends AbstractPage {
     }
 
     public void checkSuccessfulImport(int numberOfImportedProducts) {
+        waitUntil(ExpectedConditions.presenceOfElementLocated(importSuccessDiv));
         Assert.assertTrue(getDriver().findElement(importSuccessDiv).getText().contains("Sikeres importálás!"));
         Assert.assertTrue(getDriver().findElement(importSuccessDiv).getText().contains(numberOfImportedProducts + " elem került importálásra"));
     }
@@ -93,5 +93,10 @@ public class ProductsPagePOM extends AbstractPage {
 
     public void clickFirstProductName() {
         elementClick(firstProductName);
+    }
+
+    public void editProductFromActions(){
+        elementClick(foundNameActions);
+        elementClick(editProductButton);
     }
 }
