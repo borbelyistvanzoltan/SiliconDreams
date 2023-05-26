@@ -20,4 +20,7 @@ public class ProductsPage {
     public static final By firstProductName = By.xpath("/html/body/div[3]/div/div[2]/div[1]/div/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr/td[3]/a");
     public static final By foundNameActions = By.xpath("/html/body/div[3]/div/div[2]/div[1]/div/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[2]/table/tbody/tr[1]/td[2]/div/div/a");
     public static final By editProductButton = By.xpath("/html/body/div[12]/a[1]");
+    public static final By attachTab = By.xpath("/html/body/div[3]/div/div[2]/div[1]/div/div[2]/div/div/form/ul/li[5]");
+    public static final By documentDropDownDiv = By.xpath("/html/body/div[3]/div/div[2]/div[1]/div/div[2]/div/div/form/div[2]/div[5]/div/div/div/fieldset/div/div[2]/div/div[2]/div/div/div/button");
+    public static final By attachedFile = By.xpath("/html/body/div[3]/div/div[2]/div[1]/div/div[2]/div/div/form/div[2]/div[5]/div/div/div/fieldset/div/div[2]/div/div[2]/div[2]/div/div/div/div[2]/a");
 }

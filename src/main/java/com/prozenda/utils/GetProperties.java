@@ -4,6 +4,7 @@ import com.prozenda.pages.AbstractPage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
 
@@ -23,5 +24,12 @@ public class GetProperties extends AbstractPage {
         }
 
         return prop.getProperty(key);
+    }
+
+    public static String getProductFilePath() {
+        Path currentRelativePath = Paths.get("");
+        String currentAbsolutePath = currentRelativePath.toAbsolutePath().toString();
+
+        return currentAbsolutePath + GetProperties.getProperty("product-file-upload.path");
     }
 }
