@@ -56,9 +56,8 @@ public class PartnersPagePOM extends UIActions {
 
     public void navigateToPartnersModule(){
         elementClick(partnersModule);
-        sleep(2000);
         elementClick(allPartners);
-        sleep(6000);
+        waitToElement(ExpectedConditions.visibilityOfElementLocated(nameFilter));
     }
 
     public void clickAllPartner(){
