@@ -24,7 +24,7 @@ public class PartnersPage {
     public static final By newPartner = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
     public static final By newCustomer = By.xpath("//*[ text() = 'Új vevő']");
     public static final By newSupplier = By.xpath("//*[ text() = 'Új szállító']");
-    public static final By partnerFormListOk = By.xpath("//*[ text() = 'OK']");
+    public static final By formOk = By.xpath("//*[ text() = 'OK']");
     public static final By plusButton = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]");
     public static final By plusButtonNewPrivatePartner = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/a[1]/span[1]");
     public static final By plusButtonNewCustomerPartner = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/span[1]");
@@ -48,6 +48,8 @@ public class PartnersPage {
     public static final By membership_domestic = By.xpath("//label[contains(text(),'Belföld')]/span");
     public static final By membership_eu = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[10]/div[2]/div[1]/div[2]/div[2]/label[1]/span[1]");
     public static final By membership_nonEu = By.xpath("//*[ text() = 'EU-n kivüli']/span");
+    public static final By active = By.xpath("//label[contains(text(),'Aktív')]/following-sibling::span");
+
     // Edit partner
     public static final By editHeaderTitle = By.xpath("//h3[contains(text(),'Szerkesztés:')]");
     public static final By foundNameActions = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/div[1]/div[1]/a[1]");
@@ -60,5 +62,18 @@ public class PartnersPage {
     public static final By backToList = By.xpath("//*[ text() = 'Vissza a listanézethez']");
     public static final By backToEdit = By.xpath("//*[ text() = 'Tovább a szerkesztéshez']");
     public static final By continueEdit = By.xpath("//*[ text() = 'Szerkesztés folytatása']");
+    public static final By relatedPartner = By.xpath("//*[ contains (text(), 'Kapcsolódó partnerek' ) ]");
+
+    // Related partners tab
+    public static final By newRelatedPartner = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/table[1]/tbody[1]/tfoot[1]/tr[1]/td[1]/div[1]/div[1]/a[1]");
+    public static final By foundRelatedPartner = By.xpath("//tbody/tr[1]/td[1]/label[1]/span[1]");
+    public static final By addPartner = By.xpath("/html[1]/body[1]/div[5]/div[9]/div[1]/div[1]/div[3]/div[1]/button[1]");
+    public static final By commentInput = By.xpath("//tbody/tr[1]/td[3]/div[1]/div[2]/input[1]");
+
+    // Receipt module selectors for check the active partners
+    public static final By saleModule = By.xpath("//*[ contains (text(), 'Értékesítés' ) ]");
+    public static final By newCustomerReceipt = By.xpath("//*[ contains (text(), 'Új vevőszámla' ) ]");
+    public static final By customerName = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]");
+    public static final By foundCustomer = By.xpath("//div[contains(text(),'TESZT-PARTNER Kft.')]");
 }
 

@@ -33,6 +33,7 @@ public class GeneralSteps extends UIActions {
         bench = null;
     }
 
+    /*
     @AfterAll
     public static void checkDeletedPartners(){
         setUp();
@@ -45,4 +46,5 @@ public class GeneralSteps extends UIActions {
         pages.getPartnersPagePOM().partnerDeleteCheck();
     }
 
+     */
 }

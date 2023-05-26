@@ -56,7 +56,9 @@ public class PartnersPagePOM extends UIActions {
 
     public void navigateToPartnersModule(){
         elementClick(partnersModule);
+        sleep(2000);
         elementClick(allPartners);
+        sleep(6000);
     }
 
     public void clickAllPartner(){
@@ -65,7 +67,7 @@ public class PartnersPagePOM extends UIActions {
 
     public void navigateToNewPrivatePartner(){
         elementClick(newPrivatePerson);
-        elementClick(partnerFormListOk);
+        elementClick(formOk);
     }
 
     public String viewPartnersList(){
@@ -85,7 +87,7 @@ public class PartnersPagePOM extends UIActions {
     public void createNewPartner(){
         elementClick(newPartner);
         elementClick(newCustomer);
-        elementClick(partnerFormListOk);
+        elementClick(formOk);
         setText(partnerName,testData.getPartnerID(), false);
         elementClick(createdPartner);
         waitForInput(companyNumber, "defaultValue",5000);
@@ -111,9 +113,17 @@ public class PartnersPagePOM extends UIActions {
         return getSuccessfulSaveMessage(backToList);
     }
 
-    public void filterByName(String filteredName){
+    public void filterByName(String filteredName, boolean refresh){
+        if (refresh){
+            getDriver().navigate().refresh();
+            wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+        }
         waitToElement(ExpectedConditions.elementToBeClickable(nameFilter));
         setText(nameFilter, filteredName, true);
+    }
+
+    public void filterByName(String filteredName){
+        filterByName(filteredName, false);
     }
 
     public void editPartner(){
@@ -122,7 +132,7 @@ public class PartnersPagePOM extends UIActions {
         setText(companyNumber, testData.getCompanyNumber(), true);
         elementClick(savePartner);
     }
-    public void editPartnerFromActions(){
+    public void editPartnerFromActions(){;
         elementClick(foundNameActions);
         elementClick(editPartner);
     }
@@ -227,7 +237,7 @@ public class PartnersPagePOM extends UIActions {
         } else if (supplier){
             elementClick(newSupplier);
         }
-        elementClick(partnerFormListOk);
+        elementClick(formOk);
     }
 
     public void createPartnerFromListView(boolean customer, boolean supplier, boolean privatePerson){
@@ -239,11 +249,12 @@ public class PartnersPagePOM extends UIActions {
         } else if(privatePerson){
             elementClick(plusButtonNewPrivatePartner);
         }
-        elementClick(partnerFormListOk);
+        elementClick(formOk);
     }
 
     public void clickOnTheCreatedPartnerName(){
         elementClick(createdPartner);
+        sleep(6000);
     }
 
     public String getEditHeaderTitle(){
@@ -310,7 +321,7 @@ public class PartnersPagePOM extends UIActions {
     public void navigateNewCustomer(){
         elementClick(partnersModule);
         elementClick(newCustomer);
-        elementClick(partnerFormListOk);
+        elementClick(formOk);
     }
 
     public void requiredFieldsCheck(boolean partnerid, boolean name) {
@@ -379,4 +390,60 @@ public class PartnersPagePOM extends UIActions {
             Allure.addAttachment("The cloning is unsuccessful!", takeScreenshot());
         }
     }
+
+    public void fillData(String partner){
+        setText(partnerName, partner, true);
+        elementClick(createdPartner);
+        waitForInput(companyNumber, "defaultValue",5000);
+    }
+
+    public void activeSwitch(){
+        elementClick(active);
+    }
+
+    public void checkActiveSwitchInReceipt(boolean negativeTest){
+        elementClick(saleModule);
+        elementClick(newCustomerReceipt);
+        elementClick(formOk);
+        setText(customerName, testData.getPartnerID(), true);
+        try{
+            String getFoundPartner = getDriver().findElement(foundCustomer).getAttribute("textContent");
+            if (getFoundPartner.equals(testData.getActivePartnerName())){
+                System.out.println("The active switch on - the partner is active on invoices!");
+                Allure.step("The active switch on - the partner is active on invoices", Status.PASSED);
+            } else{
+                System.err.println("The active switch on - the partner is not found!");
+                Allure.step("The active switch on - the partner is not found!", Status.FAILED);
+                Allure.addAttachment("Active switch", takeScreenshot());
+            }
+        }catch (NoSuchElementException e){
+                if (negativeTest){
+                    System.out.println("The active switch off - the partner is not active on invoices!");
+                    Allure.step("The active switch off - the partner is not active on invoices!", Status.PASSED);
+                }else {
+                    System.err.println("The active switch off - the partner is not active on invoices!");
+                    Allure.step("The active switch off - the partner is not active on invoices!", Status.FAILED);
+                    Allure.addAttachment("Active switch", takeScreenshot());
+                }
+        } catch (Exception e){
+            System.err.println("The partner not found!");
+            Allure.step("The partner not found!", Status.FAILED);
+            Allure.addAttachment("Active switch", takeScreenshot());
+        }
+    }
+
+    public void navigateToRelatedPartner(){
+        elementClick(relatedPartner);
+    }
+
+    public void addNewRelatedPartner(){
+        elementClick(newRelatedPartner);
+        elementClick(foundRelatedPartner);
+        elementClick(addPartner);
+    }
+
+    public void addComment(String comment){
+        setText(commentInput, comment, true);
+    }
+
 }

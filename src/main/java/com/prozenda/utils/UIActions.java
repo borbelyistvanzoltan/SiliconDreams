@@ -117,7 +117,9 @@ public class UIActions extends AbstractPage {
         try {
             if (isElementVisible(element)) {
                 WebElement webElement = DriverManager.getInstance().getDriver().findElement(element);
+                sleep(500);
                 webElement.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+                sleep(1000);
             }
         } catch (NoSuchElementException e) {
             System.err.println("NoSuchElementException, the element is not visible!\n" + e.getMessage());
@@ -135,6 +137,18 @@ public class UIActions extends AbstractPage {
 
     public static void scrollByPixel(int y){
         scrollByPixel(0, y);
+    }
+
+    public static void sleep(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (IllegalArgumentException e) {
+            System.err.println("IllegalArgumentException, the specified waiting time in the parameter is negative!\n" + e.getMessage());
+        } catch (InterruptedException e) {
+            System.err.println("InterruptedException, the waiting thread was aborted!\n" + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Another exception.\n" + e.getMessage());
+        }
     }
 
 }

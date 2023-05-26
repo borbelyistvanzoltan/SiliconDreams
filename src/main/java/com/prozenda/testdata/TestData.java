@@ -56,33 +56,13 @@ public class TestData {
         return clonePartnerId;
     }
 
-    private String taxNumber;
-    public String getTaxNumber(){
-        return taxNumber;
+    private String activePartnerName;
+    public String getActivePartnerName(){
+        return activePartnerName;
     }
 
-    private String customer;
-    public String getCustomer(){
-        return customer;
-    }
-
-    private String postalCode;
-    public String getPostalCode(){
-        return postalCode;
-    }
-
-    private String settlement;
-    public String getSettlement(){
-        return settlement;
-    }
-
-    private String publicSpaceName;
-    public String getPublicSpaceName(){
-        return publicSpaceName;
-    }
-
-    private String natureOfPublicSpace;
-    public String getNatureOfPublicSpace(){
-        return natureOfPublicSpace;
+    private String comment;
+    public String getComment(){
+        return comment;
     }
 }
