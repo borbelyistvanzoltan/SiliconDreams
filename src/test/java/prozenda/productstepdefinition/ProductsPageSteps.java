@@ -4,6 +4,8 @@ import com.prozenda.pages.Pages;
 import com.prozenda.pages.ProductsPagePOM;
 import io.cucumber.java.en.Then;
 
+import static com.prozenda.utils.UIActions.scrollByPixel;
+
 public class ProductsPageSteps {
 
     Pages pages = new Pages();
@@ -26,6 +28,21 @@ public class ProductsPageSteps {
     @Then("Edit the product from actions menu")
     public void editProductFromActionMenu() {
         pages.getProductsPagePOM().editProductFromActions();
+    }
+
+    @Then("Navigate to attach tab")
+    public void navigateToAttachTab() {
+        pages.getProductsPagePOM().navigateToAttachTab();
+    }
+
+    @Then("Check {string} file is attached")
+    public void checkAttachedFile(String fileName) {
+        pages.getProductsPagePOM().checkFileIsAttached(fileName);
+    }
+
+    @Then("Upload a file successfully")
+    public void fileUpload() {
+        pages.getProductsPagePOM().uploadFile();
     }
 
     @Then("edit product name to {string}")

@@ -5,13 +5,14 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
+import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static com.prozenda.selectors.ProductsPage.*;
 import static com.prozenda.selectors.ProductsPage.newProductButton;
-import static com.prozenda.utils.UIActions.elementClick;
+import static com.prozenda.utils.GetProperties.getProductFilePath;
+import static com.prozenda.utils.UIActions.*;
 
 public class ProductsPagePOM extends AbstractPage {
 
@@ -98,5 +99,19 @@ public class ProductsPagePOM extends AbstractPage {
     public void editProductFromActions(){
         elementClick(foundNameActions);
         elementClick(editProductButton);
+    }
+
+    public void navigateToAttachTab() {
+        scrollByPixel(-1000);
+        elementClick(attachTab);
+    }
+
+    public void checkFileIsAttached(String fileName) {
+        waitUntil(ExpectedConditions.visibilityOfElementLocated(attachedFile));
+        Assert.assertEquals(fileName, getDriver().findElement(attachedFile).getText());
+    }
+
+    public void uploadFile() {
+        dropFile(new File(getProductFilePath()), getDriver().findElement(documentDropDownDiv), 0, 0 );
     }
 }
