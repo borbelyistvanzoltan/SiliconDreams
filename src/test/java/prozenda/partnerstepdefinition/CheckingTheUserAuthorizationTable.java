@@ -69,7 +69,7 @@ public class CheckingTheUserAuthorizationTable extends UIActions {
 
     @Then("Check the delete")
     public void deleteCheck(){
-        pages.getPartnersPagePOM().filterByName(testData.getCreatedPartnerName());
+        pages.getPartnersPagePOM().filterByName(testData.getCreatedPartnerName(), true);
         pages.getPartnersPagePOM().partnerDeleteCheck();
     }
 }
