@@ -46,8 +46,8 @@ public class PartnersPage {
     public static final By taxNumber= By.name("adoszam");
     public static final By typeCustomer = By.xpath("//label[contains(text(),'Vevő')]/span");
     public static final By membership_domestic = By.xpath("//label[contains(text(),'Belföld')]/span");
-    public static final By membership_eu = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[10]/div[2]/div[1]/div[2]/div[2]/label[1]/span[1]");
-    public static final By membership_nonEu = By.xpath("//*[ text() = 'EU-n kivüli']/span");
+    public static final By membership_eu = By.xpath("//label[contains(text(),'EU')]/span");
+    public static final By membership_nonEu = By.xpath("//label[contains(text(),'EU-n kivüli')]/span");
     public static final By active = By.xpath("//label[contains(text(),'Aktív')]/following-sibling::span");
 
     // Edit partner
@@ -58,7 +58,10 @@ public class PartnersPage {
     public static final By deletePartner = By.xpath("/html[1]/body[1]/div[12]/a[3]");
     public static final By confirmDelete = By.xpath("/html[1]/body[1]/div[12]/div[1]/div[3]/button[1]");
     public static final By deleteMessageBox = By.xpath("/html/body/div[12]/span[3]");
-    public static final By createdPartner = By.xpath("//*[ text() = 'TESZT-PARTNER Kft.']");
+    public static final By testPartnerName = By.xpath("//*[ text() = 'TESZT-PARTNER']");
+    public static final By createdPartner = By.xpath("//div[contains(text(),'TESZT-PARTNER')]");
+    public static final By createdSupplierPartner = By.xpath("//strong[contains(text(),'TESZT KFT')]");
+    public static final By foundSupplier = By.xpath("//*[ contains (text(), 'TESZT KFT' ) ]");
     public static final By backToList = By.xpath("//*[ text() = 'Vissza a listanézethez']");
     public static final By backToEdit = By.xpath("//*[ text() = 'Tovább a szerkesztéshez']");
     public static final By continueEdit = By.xpath("//*[ text() = 'Szerkesztés folytatása']");
@@ -74,6 +77,11 @@ public class PartnersPage {
     public static final By saleModule = By.xpath("//*[ contains (text(), 'Értékesítés' ) ]");
     public static final By newCustomerReceipt = By.xpath("//*[ contains (text(), 'Új vevőszámla' ) ]");
     public static final By customerName = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]");
-    public static final By foundCustomer = By.xpath("//div[contains(text(),'TESZT-PARTNER Kft.')]");
+    public static final By foundCustomer = By.xpath("/html[1]/body[1]/div[16]/a[1]/div[2]/div[1]/div[1]/span[1]");
+
+    // Supply module selectors for check the active partners
+    public static final By supplyModule = By.xpath("//*[ contains (text(), 'Beszerzés' ) ]");
+    public static final By newSuppliersReceipt = By.xpath("//*[ contains (text(), 'Új szállítói számla' ) ]");
+    public static final By supplierName = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/fieldset[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/input[1]");
 }
 

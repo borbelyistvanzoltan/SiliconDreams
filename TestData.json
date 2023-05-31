@@ -1,12 +1,15 @@
 {
 	"user" : "borbély",
 	"partnerID" : "Teszt partner",
+	"id" : "teszt id - prozenda",
 	"createdPartnerName" : "Teszt-Partner",
 	"companyNumber" : "05-09-024535",
+	"newCompanyNumber" : "05-09-024500",
 	"privatePartnerName" : "Teszt Ember",
 	"editedCompanyId" : "TK120000",
 	"clonePartnerName" : "TESZT KFT - TC06",
 	"clonePartnerId" : "TC06",
-	"activePartnerName" : "TESZT-PARTNER Kft.",
-	"comment": "Teszt megjegyzés"
+	"partner" : "TESZT-PARTNER",
+	"comment": "Teszt megjegyzés",
+	"supplier" : "TESZT KFT"
 }
