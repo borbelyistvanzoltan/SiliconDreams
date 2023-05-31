@@ -12,8 +12,8 @@ public class DeleteReceipt extends UIActions {
         pages.getCustomerReceiptListViewPagePOM().clickOnThreeDotsAndDeleteNewlyCreatedReceipt();
     }
 
-    @Then("Click on check box and delete newly created receipt")
-    public void clickOnCheckBoxAndDeleteNewlyCreatedReceipt() {
+    @Then("Click on checkbox and delete newly created receipt")
+    public void clickOnCheckboxAndDeleteNewlyCreatedReceipt() {
         pages.getCustomerReceiptListViewPagePOM().clickOnCheckBoxAndDeleteNewlyCreatedReceipt();
     }
 
