@@ -9,7 +9,7 @@ Feature: Receipt
     When Click on three dots and edit on first receipt
     Then Wait for loading Receipt page
     Then Select "Magic teszt vevő számla" bizonylattomb
-    Then Type "Prozenda" into customer field
+    Then Type "Prozenda Hungary Kft." into customer field
     Then Type "Késztermék teszt" into item field
     Then Select "Központi raktár"
     Then Save form

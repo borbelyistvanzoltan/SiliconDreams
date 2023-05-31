@@ -12,7 +12,7 @@ Feature: Receipt
     Then Click Ok button
     Then Wait for loading Receipt page
     Then Select "Teszt számla" bizonylattomb
-    Then Type "Prozenda" into customer field
+    Then Type "Prozenda Hungary Kft." into customer field
     Then Type "Késztermék teszt" into item field
     Then Select "Központi raktár"
     Then Save form
