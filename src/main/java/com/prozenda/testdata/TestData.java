@@ -56,13 +56,28 @@ public class TestData {
         return clonePartnerId;
     }
 
-    private String activePartnerName;
-    public String getActivePartnerName(){
-        return activePartnerName;
+    private String partner;
+    public String getPartner(){
+        return partner;
     }
 
     private String comment;
     public String getComment(){
         return comment;
+    }
+
+    private String supplier;
+    public String getSupplier(){
+        return supplier;
+    }
+
+    private String newCompanyNumber;
+    public String getNewCompanyNumber(){
+        return newCompanyNumber;
+    }
+
+    private String id;
+    public String getId(){
+        return id;
     }
 }

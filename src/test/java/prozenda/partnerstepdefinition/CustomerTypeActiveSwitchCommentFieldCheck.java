@@ -3,6 +3,7 @@ package prozenda.partnerstepdefinition;
 import com.prozenda.pages.Pages;
 import com.prozenda.utils.UIActions;
 import io.cucumber.java.en.Then;
+import static com.prozenda.selectors.PartnersPage.*;
 
 /**
  * @author Rebeka Alajtner
@@ -14,27 +15,27 @@ public class CustomerTypeActiveSwitchCommentFieldCheck extends UIActions {
     @Then("Create customer")
     public void createNewCustomerWithRelatesPartner(){
         pages.getPartnersPagePOM().createPartnerFromNewButton(false, true, false);
-        pages.getPartnersPagePOM().fillData(testData.getPartnerID());
+        pages.getPartnersPagePOM().fillData(createdPartner,testData.getPartnerID());
         pages.getPartnersPagePOM().activeSwitch();
         pages.getPartnersPagePOM().saveTheNewPartner();
         pages.getPartnersPagePOM().backToListView();
     }
-    @Then("Check active switch on-off status in Receipt module")
+    @Then("First type: check active switch on-off status in Receipt module")
         public void checkActivePartnerInReceipt(){
-        pages.getPartnersPagePOM().checkActiveSwitchInReceipt(true);
+        pages.getPartnersPagePOM().checkActiveSwitchInReceipt(testData.getPartnerID(),testData.getPartner(),true);
         pages.getPartnersPagePOM().navigateToPartnersModule();
         pages.getPartnersPagePOM().filterByName(testData.getCreatedPartnerName());
-        pages.getPartnersPagePOM().clickOnTheCreatedPartnerName();
+        pages.getPartnersPagePOM().clickOnTheCreatedPartnerName(testPartnerName);
         pages.getPartnersPagePOM().activeSwitch();
         pages.getPartnersPagePOM().saveTheNewPartner();
         pages.getPartnersPagePOM().backToListView();
-        pages.getPartnersPagePOM().checkActiveSwitchInReceipt(false);
+        pages.getPartnersPagePOM().checkActiveSwitchInReceipt(testData.getPartnerID(),testData.getPartner(),false);
     }
-    @Then ("Back to edit partner")
+    @Then ("First type: back to edit partner")
     public void backToEditPartner(){
         pages.getPartnersPagePOM().navigateToPartnersModule();
         pages.getPartnersPagePOM().filterByName(testData.getCreatedPartnerName(), true);
-        pages.getPartnersPagePOM().clickOnTheCreatedPartnerName();
+        pages.getPartnersPagePOM().clickOnTheCreatedPartnerName(testPartnerName);
     }
     @Then("Add new related partner and save without comment")
     public void checkAlert(){

@@ -14,7 +14,6 @@ public class CreateNewCustomerFromListView {
 
     @Then("Create new customer from list view")
     public void createNewCustomerFromListView(){
-        pages.getPartnersPagePOM().navigateToPartnersModule();
         pages.getPartnersPagePOM().createPartnerFromListView(true, false, false);
     }
 

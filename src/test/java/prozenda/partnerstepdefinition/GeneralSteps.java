@@ -43,5 +43,7 @@ public class GeneralSteps extends UIActions {
         pages.getPartnersPagePOM().partnerDeleteCheck();
         pages.getPartnersPagePOM().filterByName(testData.getPrivatePartnerName());
         pages.getPartnersPagePOM().partnerDeleteCheck();
+        pages.getPartnersPagePOM().filterByName(testData.getSupplier());
+        pages.getPartnersPagePOM().partnerDeleteCheck();
     }
 }

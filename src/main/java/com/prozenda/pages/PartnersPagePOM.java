@@ -1,9 +1,6 @@
 package com.prozenda.pages;
 
 import com.prozenda.utils.UIActions;
-import io.qameta.allure.Allure;
-import io.qameta.allure.model.Status;
-import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import static com.prozenda.selectors.MainPage.newButton;
@@ -11,6 +8,7 @@ import static com.prozenda.selectors.PartnersPage.*;
 import static com.prozenda.selectors.PartnersPage.partnerName;
 import static com.prozenda.selectors.UsersPermission.*;
 import static com.prozenda.utils.WaitEnum.*;
+import static com.prozenda.utils.Report.*;
 /**
  * @author Rebeka Alajtner
  * @created 21/04/2023 - 13:25
@@ -38,18 +36,14 @@ public class PartnersPagePOM extends UIActions {
             getDriver().findElement(pages.getUsersPermissionPOM().allPermission).click();
             waitUntil(ExpectedConditions.elementToBeClickable(pages.getUsersPermissionPOM().allPermission));
             if (notificationCheck.equals("true")){
-                System.out.println("The user has got every permission!");
-                Allure.step("The user has got every permission!", Status.PASSED);
+                report("The user has got every permission!");
             } else{
-                System.err.println("The user hasn't got every permission!");
-                Allure.step("The user hasn't got every permission!", Status.FAILED);
+                report("The user hasn't got every permission!","User permission");
             }
         } else if (notificationCheck.equals("true")) {
-            System.out.println("The user has got every permission!");
-            Allure.step("The user has got every permission!", Status.PASSED);
+            report("The user has got every permission!");
         }else {
-            System.err.println("The check box has unnamed value!");
-            Allure.step("The check box has unnamed value!", Status.FAILED);
+            report("The check box has unnamed value!","User permission");
         }
         return notificationCheck;
     }
@@ -73,12 +67,9 @@ public class PartnersPagePOM extends UIActions {
         waitUntil(ExpectedConditions.elementToBeClickable(partnersGridCell));
         String getPartner = getDriver().findElement(partnersGridCell).getAttribute("textContent");
         if (!getPartner.equals("")){
-            System.out.println("The user can view the partners!");
-            Allure.step("The user can view the partners!", Status.PASSED);
+            report("The user can view the partners!");
         }else {
-            System.err.println("The user can't view the partners!");
-            Allure.step("The user can't view the partners!", Status.FAILED);
-            Allure.addAttachment("View partners list", takeScreenshot());
+            report ("The user can't view the partners!","View partners list");
         }
         return getPartner;
     }
@@ -90,6 +81,9 @@ public class PartnersPagePOM extends UIActions {
         setText(partnerName,testData.getPartnerID(), false);
         elementClick(createdPartner);
         waitForInput(companyNumber, "defaultValue",5000);
+        clear(partnerName);
+        setText(partnerName, testData.getPartner(), true);
+        setText(companyNumber, testData.getNewCompanyNumber(), true);
         elementClick(savePartner);
     }
 
@@ -98,12 +92,9 @@ public class PartnersPagePOM extends UIActions {
         getDriver().findElement(successfulSaveMessage);
         String message = getDriver().findElement(successfulSaveMessage).getAttribute("textContent");
         if(message.equals("Sikeres mentés!")){
-            System.out.println("Successful edit the partner!");
-            Allure.step("Successful edit the partner!", Status.PASSED);
+            report("Successful edit the partner!");
         } else {
-            System.err.println("Unsuccessful edit the partner!");
-            Allure.step("Unsuccessful edit the partner!", Status.FAILED);
-            Allure.addAttachment("Edit the partner", takeScreenshot());
+            report ("Unsuccessful edit the partner!", "Edit the partner");
         }
         elementClick(button);
         return message;
@@ -145,12 +136,9 @@ public class PartnersPagePOM extends UIActions {
         waitUntil(ExpectedConditions.visibilityOfElementLocated(deleteMessageBox));
         String deleteMessage = getDriver().findElement(deleteMessageBox).getAttribute("textContent");
         if(deleteMessage.equals("Az elem sikeresen el lett távolítva.")){
-            System.out.println("Successful delete the partner!");
-            Allure.step("Successful delete the partner!", Status.PASSED);
+            report("Successful delete the partner!");
         } else {
-            System.err.println("Unsuccessful delete the partner!");
-            Allure.step("Unsuccessful delete the partner!", Status.FAILED);
-            Allure.addAttachment("Delete the partner", takeScreenshot());
+            report("Unsuccessful delete the partner!","Delete the partner");
         }
         return deleteMessage;
     }
@@ -165,14 +153,11 @@ public class PartnersPagePOM extends UIActions {
     }
 
     public String checkTheCreatedPartner(){
-        String createdPartnerName = getDriver().findElement(createdPartner).getAttribute("textContent");
-        if (createdPartnerName.equals("TESZT-PARTNER Kft.")){
-            System.out.println("New partner has been created!");
-            Allure.step("New partner has been created!", Status.PASSED);
+        String createdPartnerName = getDriver().findElement(testPartnerName).getAttribute("textContent");
+        if (createdPartnerName.equals("TESZT-PARTNER")){
+            report("New partner has been created!");
         }else {
-            System.err.println("New partner hasn't been created!");
-            Allure.step("New partner hasn't been created!", Status.FAILED);
-            Allure.addAttachment("Create new partner", takeScreenshot());
+            report("New partner hasn't been created!","Create new partner");
         }
         return createdPartnerName;
     }
@@ -193,16 +178,11 @@ public class PartnersPagePOM extends UIActions {
         waitToElement(ExpectedConditions.attributeContains(errorAlert, "outerHTML", "form-error alert alert-danger"));
         String list = getDriver().findElement(errorAlert).getAttribute("textContent");
         if (list.contains(validAlert)){
-            System.out.println(passLog);
-            Allure.step(passLog, Status.PASSED);
+            report(passLog);
         }else if (list.equals("")) {
-            System.err.println(failLogContain);
-            Allure.step(failLogContain, Status.FAILED);
-            Allure.addAttachment("Error alert" + list, takeScreenshot());
+            report(failLogContain, "Error alert" + list);
         } else{
-            System.err.println(failLogMatch);
-            Allure.step(failLogMatch, Status.FAILED);
-            Allure.addAttachment("Error alert" + list, takeScreenshot());
+            report(failLogMatch, "Error alert" + list);
         }
         return list;
     }
@@ -215,12 +195,9 @@ public class PartnersPagePOM extends UIActions {
     public String getFoundPrivatePartnerName(){
         String foundName = getDriver().findElement(foundPrivatePartnerName).getAttribute("textContent");
         if (foundName.equals(testData.getPrivatePartnerName())){
-            System.out.println("Successful created the private partner!");
-            Allure.step("Successful created the private partner!", Status.PASSED);
+            report("Successful created the private partner!");
         } else {
-            Assert.fail("Unsuccessful created the private partner!");
-            Allure.step("Unsuccessful created the private partner!", Status.FAILED);
-            Allure.addAttachment("Create new private partner", takeScreenshot());
+            report("Unsuccessful created the private partner!","Create new private partner");
         }
         return foundName;
     }
@@ -251,20 +228,16 @@ public class PartnersPagePOM extends UIActions {
         elementClick(formOk);
     }
 
-    public void clickOnTheCreatedPartnerName(){
-        elementClick(createdPartner);
-        sleep(6000);
+    public void clickOnTheCreatedPartnerName(By button){
+        elementClick(button);
     }
 
     public String getEditHeaderTitle(){
         String editTitle = getDriver().findElement(editHeaderTitle).getAttribute("textContent");
         if (editTitle.contains("Szerkesztés: ")){
-            System.out.println("The partner is editable!");
-            Allure.step("The partner is editable!", Status.PASSED);
+            report("The partner is editable!");
         } else {
-            System.err.println("The partner is not editable!");
-            Allure.step("The partner is not editable!", Status.PASSED);
-            Allure.addAttachment("Edit partner" + editTitle, takeScreenshot());
+            report("The partner is not editable!","Edit partner");
         }
         return editTitle;
     }
@@ -284,16 +257,11 @@ public class PartnersPagePOM extends UIActions {
     public String getCompanyId(){
         String editedCompanyId = getDriver().findElement(companyId).getAttribute("value");
         if (editedCompanyId.equals(testData.getEditedCompanyId())){
-            System.out.println("Successful edit!");
-            Allure.step("Successful edit!", Status.PASSED);
+            report("Successful edit!");
         } else if(!editedCompanyId.equals(testData.getEditedCompanyId())) {
-            System.err.println("Unsuccessful edit!");
-            Allure.step("Unsuccessful edit!", Status.PASSED);
-            Allure.addAttachment("Edit partner" + editedCompanyId, takeScreenshot());
+            report("Unsuccessful edit!","Editing");
         } else {
-            System.err.println("Unsuccessful edit!");
-            Allure.step("Unsuccessful edit!", Status.PASSED);
-            Allure.addAttachment("Edit partner" + editedCompanyId, takeScreenshot());
+            report("Unsuccessful edit!", "Editing");
         }
         return editedCompanyId;
     }
@@ -324,9 +292,12 @@ public class PartnersPagePOM extends UIActions {
     }
 
     public void requiredFieldsCheck(boolean partnerid, boolean name) {
-        setText(partnerName, testData.getPartnerID(), true);
+        setText(partnerName,testData.getPartnerID(), false);
         elementClick(createdPartner);
-        waitForInput(companyNumber, "defaultValue", 5000);
+        waitForInput(companyNumber, "defaultValue",5000);
+        clear(partnerName);
+        setText(partnerName, testData.getPartner(), true);
+        setText(companyNumber, testData.getNewCompanyNumber(), true);
         if (name == false) {
             clear(partnerName);
             elementClick(savePartner);
@@ -337,7 +308,7 @@ public class PartnersPagePOM extends UIActions {
     }
 
     public void fillPartnerId(){
-        setText(partnerId, testData.getPartnerID(), true);
+        setText(partnerId, testData.getId(), true);
     }
 
     public void checkMembership(boolean domestic, boolean eu, boolean nonEu){
@@ -377,57 +348,70 @@ public class PartnersPagePOM extends UIActions {
 
     public void checkCloning(String whichCloned, String partnerName){
         if (!whichCloned.equals(partnerName) && partnerName.equals(testData.getClonePartnerName())){
-            System.out.println("The partner has been created by cloning from list view!");
-            Allure.step("The partner has been created by cloning from list view!", Status.PASSED);
+            report("The partner has been created by cloning from list view!");
         } else if (whichCloned.equals(partnerName)){
-            System.err.println("The cloning is unsuccessful! - the partner name is same!");
-            Allure.step("The cloning is unsuccessful! - the partner name is same!", Status.FAILED);
-            Allure.addAttachment("The cloning is unsuccessful!", takeScreenshot());
+            report("The cloning is unsuccessful! - the partner name is same!","Cloning");
         } else {
-            System.err.println("The cloning is unsuccessful!");
-            Allure.step("The cloning is unsuccessful!", Status.FAILED);
-            Allure.addAttachment("The cloning is unsuccessful!", takeScreenshot());
+            report("The cloning is unsuccessful!", "Cloning");
         }
     }
 
-    public void fillData(String partner){
-        setText(partnerName, partner, true);
-        elementClick(createdPartner);
+    public void fillData(By button,String partner){
+        setText(partnerName,partner, true);
+        elementClick(button);
         waitForInput(companyNumber, "defaultValue",5000);
+        clear(partnerName);
+        setText(partnerName, testData.getPartner(), true);
+        setText(companyNumber, testData.getNewCompanyNumber(), true);
     }
 
     public void activeSwitch(){
         elementClick(active);
     }
 
-    public void checkActiveSwitchInReceipt(boolean negativeTest){
+    public void checkActiveSwitchInReceipt(String partner, String activePartner, boolean negativeTest){
         elementClick(saleModule);
         elementClick(newCustomerReceipt);
         elementClick(formOk);
-        setText(customerName, testData.getPartnerID(), true);
+        setText(customerName, partner, true);
         try{
             String getFoundPartner = getDriver().findElement(foundCustomer).getAttribute("textContent");
-            if (getFoundPartner.equals(testData.getActivePartnerName())){
-                System.out.println("The active switch on - the partner is active on invoices!");
-                Allure.step("The active switch on - the partner is active on invoices", Status.PASSED);
+            if (getFoundPartner.equals(activePartner)){
+                report("The active switch on - the partner is active on invoices!");
             } else{
-                System.err.println("The active switch on - the partner is not found!");
-                Allure.step("The active switch on - the partner is not found!", Status.FAILED);
-                Allure.addAttachment("Active switch", takeScreenshot());
+                report("The active switch on - the partner is not found!","Active switch");
             }
         }catch (NoSuchElementException e){
                 if (negativeTest){
-                    System.out.println("The active switch off - the partner is not active on invoices!");
-                    Allure.step("The active switch off - the partner is not active on invoices!", Status.PASSED);
+                    report("The active switch off - the partner is not active on invoices!");
                 }else {
-                    System.err.println("The active switch off - the partner is not active on invoices!");
-                    Allure.step("The active switch off - the partner is not active on invoices!", Status.FAILED);
-                    Allure.addAttachment("Active switch", takeScreenshot());
+                    report("The active switch off - the partner is not active on invoices!","Active switch");
                 }
         } catch (Exception e){
-            System.err.println("The partner not found!");
-            Allure.step("The partner not found!", Status.FAILED);
-            Allure.addAttachment("Active switch", takeScreenshot());
+            report("The partner not found!","Active switch");
+        }
+    }
+
+    public void checkActiveSwitchInSupply(String partner, String activePartner, boolean negativeTest){
+        elementClick(supplyModule);
+        elementClick(newSuppliersReceipt);
+        elementClick(formOk);
+        setText(supplierName, partner, true);
+        try{
+            String getFoundPartner = getDriver().findElement(foundCustomer).getAttribute("textContent");
+            if (getFoundPartner.equals(activePartner)){
+                report("The active switch on - the partner is active on invoices!");
+            } else{
+                report("The active switch on - the partner is not found!", "Active switch");
+            }
+        }catch (NoSuchElementException e){
+            if (negativeTest){
+                report("The active switch off - the partner is not active on invoices!");
+            }else {
+                report("The active switch off - the partner is not active on invoices!","Active switch");
+            }
+        } catch (Exception e){
+            report("The partner not found!","Active switch");
         }
     }
 

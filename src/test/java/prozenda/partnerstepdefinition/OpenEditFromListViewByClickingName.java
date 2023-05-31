@@ -4,6 +4,8 @@ import com.prozenda.pages.Pages;
 import com.prozenda.utils.UIActions;
 import io.cucumber.java.en.Then;
 
+import static com.prozenda.selectors.PartnersPage.*;
+
 /**
  * @author Rebeka Alajtner
  * @created 08/05/2023 - 13:17
@@ -15,7 +17,7 @@ public class OpenEditFromListViewByClickingName extends UIActions {
     @Then("Click on created partner name")
     public void openEditByClickingName(){
         pages.getPartnersPagePOM().filterByName(testData.getCreatedPartnerName());
-        pages.getPartnersPagePOM().clickOnTheCreatedPartnerName();
+        pages.getPartnersPagePOM().clickOnTheCreatedPartnerName(testPartnerName);
     }
 
     @Then("Editing check")
