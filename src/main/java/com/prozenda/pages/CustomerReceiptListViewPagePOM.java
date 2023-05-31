@@ -38,6 +38,11 @@ public class CustomerReceiptListViewPagePOM extends AbstractPage {
     }
 
     public void clickOnCheckBoxAndDeleteNewlyCreatedReceipt() {
+        elementClick(CustomerReceiptListViewPage.checkbox);
+        waitUntil(ExpectedConditions.elementToBeClickable(CustomerReceiptListViewPage.deleteButton));
+        elementClick(CustomerReceiptListViewPage.deleteButton);
+        waitUntil(ExpectedConditions.elementToBeClickable(CustomerReceiptListViewPage.confirmationQuestion));
+        elementClick(CustomerReceiptListViewPage.confirmationOkButton);
     }
 
     public void assertReceiptDeletedSuccessfully() {
