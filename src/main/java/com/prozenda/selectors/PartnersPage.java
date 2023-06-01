@@ -60,6 +60,7 @@ public class PartnersPage {
     public static final By deleteMessageBox = By.xpath("/html/body/div[12]/span[3]");
     public static final By testPartnerName = By.xpath("//*[ text() = 'TESZT-PARTNER']");
     public static final By createdPartner = By.xpath("//div[contains(text(),'TESZT-PARTNER')]");
+    public static final By createdPrivatePartner = By.xpath("//*[ text() = 'Teszt Ember']");
     public static final By createdSupplierPartner = By.xpath("//strong[contains(text(),'TESZT KFT')]");
     public static final By foundSupplier = By.xpath("//*[ contains (text(), 'TESZT KFT' ) ]");
     public static final By backToList = By.xpath("//*[ text() = 'Vissza a listanézethez']");
