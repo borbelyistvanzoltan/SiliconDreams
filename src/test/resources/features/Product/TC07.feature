@@ -16,4 +16,5 @@ Feature: Product
     Then Navigate to attach tab
     Then Check "product-file-upload" file is attached
     Then navigate to All Products page
+    Then filter "ProzendaTermek1" on "TITLE" column filter
     Then delete created products
