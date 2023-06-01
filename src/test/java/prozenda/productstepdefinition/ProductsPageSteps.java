@@ -2,6 +2,7 @@ package prozenda.productstepdefinition;
 
 import com.prozenda.pages.Pages;
 import com.prozenda.pages.ProductsPagePOM;
+import com.prozenda.utils.GetProperties;
 import io.cucumber.java.en.Then;
 
 import static com.prozenda.utils.UIActions.scrollByPixel;
@@ -42,7 +43,12 @@ public class ProductsPageSteps {
 
     @Then("Upload a file successfully")
     public void fileUpload() {
-        pages.getProductsPagePOM().uploadFile();
+        pages.getProductsPagePOM().uploadFile(GetProperties.UploadFile.NORMAL);
+    }
+
+    @Then("Upload a large file")
+    public void largeFileUpload() {
+        pages.getProductsPagePOM().uploadFile(GetProperties.UploadFile.LARGE);
     }
 
     @Then("edit product name to {string}")

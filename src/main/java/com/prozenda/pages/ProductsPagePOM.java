@@ -1,6 +1,8 @@
 package com.prozenda.pages;
 
 import com.prozenda.utils.GetProperties;
+import io.qameta.allure.Allure;
+import io.qameta.allure.model.Status;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -107,11 +109,16 @@ public class ProductsPagePOM extends AbstractPage {
     }
 
     public void checkFileIsAttached(String fileName) {
-        waitUntil(ExpectedConditions.visibilityOfElementLocated(attachedFile));
-        Assert.assertEquals(fileName, getDriver().findElement(attachedFile).getText());
+        if(fileName.equals("")) {
+            Assert.assertEquals(0, getDriver().findElements(attachedFile).size());
+        }
+        else {
+            waitUntil(ExpectedConditions.visibilityOfElementLocated(attachedFile));
+            Assert.assertEquals(fileName, getDriver().findElement(attachedFile).getText());
+        }
     }
 
-    public void uploadFile() {
-        dropFile(new File(getProductFilePath()), getDriver().findElement(documentDropDownDiv), 0, 0 );
+    public void uploadFile(GetProperties.UploadFile uploadFile) {
+        dropFile(new File(getProductFilePath(uploadFile)), getDriver().findElement(documentDropDownDiv), 0, 0 );
     }
 }
