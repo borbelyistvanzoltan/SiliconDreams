@@ -43,12 +43,17 @@ public class ProductsPageSteps {
 
     @Then("Upload a file successfully")
     public void fileUpload() {
-        pages.getProductsPagePOM().uploadFile(GetProperties.UploadFile.NORMAL);
+        pages.getProductsPagePOM().uploadDocumnetFile(GetProperties.UploadFile.NORMAL);
     }
 
     @Then("Upload a large file")
     public void largeFileUpload() {
-        pages.getProductsPagePOM().uploadFile(GetProperties.UploadFile.LARGE);
+        pages.getProductsPagePOM().uploadDocumnetFile(GetProperties.UploadFile.LARGE);
+    }
+
+    @Then("Upload an incorrect format file")
+    public void incorrectFormatFileUpload() {
+        pages.getProductsPagePOM().uploadImageFile(GetProperties.UploadFile.NORMAL);
     }
 
     @Then("edit product name to {string}")

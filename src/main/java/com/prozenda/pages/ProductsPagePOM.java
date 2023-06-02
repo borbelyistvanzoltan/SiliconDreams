@@ -1,8 +1,6 @@
 package com.prozenda.pages;
 
 import com.prozenda.utils.GetProperties;
-import io.qameta.allure.Allure;
-import io.qameta.allure.model.Status;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -118,7 +116,11 @@ public class ProductsPagePOM extends AbstractPage {
         }
     }
 
-    public void uploadFile(GetProperties.UploadFile uploadFile) {
+    public void uploadDocumnetFile(GetProperties.UploadFile uploadFile) {
         dropFile(new File(getProductFilePath(uploadFile)), getDriver().findElement(documentDropDownDiv), 0, 0 );
+    }
+
+    public void uploadImageFile(GetProperties.UploadFile uploadFile) {
+        dropFile(new File(getProductFilePath(uploadFile)), getDriver().findElement(imageDropDownDiv), 0, 0 );
     }
 }
