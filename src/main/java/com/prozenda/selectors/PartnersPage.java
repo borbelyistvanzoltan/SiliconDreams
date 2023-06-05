@@ -56,7 +56,7 @@ public class PartnersPage {
     public static final By editPartner = By.xpath("/html[1]/body[1]/div[12]/a[1]");
     public static final By clonePartner = By.xpath("/html[1]/body[1]/div[12]/a[2]");
     public static final By deletePartner = By.xpath("/html[1]/body[1]/div[12]/a[3]");
-    public static final By confirmDelete = By.xpath("/html[1]/body[1]/div[12]/div[1]/div[3]/button[1]");
+    public static final By confirmDelete = By.xpath("//*[ text() = 'Törlés']");
     public static final By deleteMessageBox = By.xpath("/html/body/div[12]/span[3]");
     public static final By testPartnerName = By.xpath("//*[ text() = 'TESZT-PARTNER']");
     public static final By createdPartner = By.xpath("//div[contains(text(),'TESZT-PARTNER')]");
@@ -71,8 +71,11 @@ public class PartnersPage {
     // Related partners tab
     public static final By newRelatedPartner = By.xpath("/html[1]/body[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/form[1]/div[1]/div[2]/div[1]/div[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/fieldset[1]/div[1]/table[1]/tbody[1]/tfoot[1]/tr[1]/td[1]/div[1]/div[1]/a[1]");
     public static final By foundRelatedPartner = By.xpath("//tbody/tr[1]/td[1]/label[1]/span[1]");
+    public static final By filterByName = By.name("search");
     public static final By addPartner = By.xpath("/html[1]/body[1]/div[5]/div[9]/div[1]/div[1]/div[3]/div[1]/button[1]");
     public static final By commentInput = By.xpath("//tbody/tr[1]/td[3]/div[1]/div[2]/input[1]");
+    public static final By warningMessage = By.xpath("/html[1]/body[1]/div[14]/div[1]");
+    public static final By closeWarningMessage = By.xpath("//button[contains(text(),'Bezárás')]");
 
     // Receipt module selectors for check the active partners
     public static final By saleModule = By.xpath("//*[ contains (text(), 'Értékesítés' ) ]");

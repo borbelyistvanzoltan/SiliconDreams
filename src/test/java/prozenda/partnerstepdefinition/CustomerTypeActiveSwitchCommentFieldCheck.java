@@ -40,7 +40,7 @@ public class CustomerTypeActiveSwitchCommentFieldCheck extends UIActions {
     @Then("Add new related partner and save without comment")
     public void checkAlert(){
         pages.getPartnersPagePOM().navigateToRelatedPartner();
-        pages.getPartnersPagePOM().addNewRelatedPartner();
+        pages.getPartnersPagePOM().addNewRelatedPartner(false,"");
         pages.getPartnersPagePOM().saveTheNewPartner();
         pages.getPartnersPagePOM().getErrorList("A(z) kapcsolódó partner megjegyzés megadása kötelező, ha a(z) kapcsolódó partner megjegyzés kapcsoló értéke 1!","The missing comment alert is visible!","The comment field is optional","The comment field is optional");
     }

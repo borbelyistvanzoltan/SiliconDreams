@@ -105,8 +105,7 @@ public class PartnersPagePOM extends UIActions {
 
     public void filterByName(String filteredName, boolean refresh){
         if (refresh){
-            getDriver().navigate().refresh();
-            wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+            refreshPage();
         }
         waitToElement(ExpectedConditions.elementToBeClickable(nameFilter));
         setText(nameFilter, filteredName, true);
@@ -114,6 +113,7 @@ public class PartnersPagePOM extends UIActions {
 
     public void filterByName(String filteredName){
         filterByName(filteredName, false);
+        sleep(2000);
     }
 
     public void editPartner(){
@@ -132,15 +132,15 @@ public class PartnersPagePOM extends UIActions {
         elementClick(confirmDelete);
     }
 
-    public String getDeleteMessage(){
-        waitUntil(ExpectedConditions.visibilityOfElementLocated(deleteMessageBox));
-        String deleteMessage = getDriver().findElement(deleteMessageBox).getAttribute("textContent");
-        if(deleteMessage.equals("Az elem sikeresen el lett távolítva.")){
-            report("Successful delete the partner!");
-        } else {
-            report("Unsuccessful delete the partner!","Delete the partner");
+    public void getDeleteMessage(){
+        if (waitToElement(ExpectedConditions.visibilityOfElementLocated(deleteMessageBox)) == ELEMENTLOCATED) {
+            String deleteMessage = getDriver().findElement(deleteMessageBox).getAttribute("textContent");
+            if (deleteMessage.equals("Az elem sikeresen el lett távolítva.")) {
+                report("Successful delete the partner!");
+            } else {
+                report("Unsuccessful delete the partner!", "Delete the partner");
+            }
         }
-        return deleteMessage;
     }
 
     public String partnerDeleteCheck(){
@@ -149,6 +149,7 @@ public class PartnersPagePOM extends UIActions {
         if( !results.equals("Nincs a keresésnek megfelelő találat")){
             deletePartner();
         }
+        sleep(2000);
         return results;
     }
 
@@ -419,14 +420,49 @@ public class PartnersPagePOM extends UIActions {
         elementClick(relatedPartner);
     }
 
-    public void addNewRelatedPartner(){
+    public void addNewRelatedPartner(boolean filter, String name){
         elementClick(newRelatedPartner);
-        elementClick(foundRelatedPartner);
-        elementClick(addPartner);
+        if(filter){
+            setText(filterByName, name, true);
+            sleep(3000);
+            elementClick(foundRelatedPartner);
+            elementClick(addPartner);
+        } else {
+            elementClick(foundRelatedPartner);
+            elementClick(addPartner);
+        }
     }
 
     public void addComment(String comment){
         setText(commentInput, comment, true);
+    }
+
+    public void createPrivateRelatedPartner(){
+        createPartnerFromNewButton(true, false, false);
+        setText(partnerName, testData.getRelatedPartnerName(),false);
+        elementClick(partnerId);
+        saveTheNewPartner();
+        backToListView();
+    }
+
+    public String relatedPartnerWarningMessage(String validMessage, String reportTextPass, String reportTextFail, String title, boolean navigate){
+        waitUntil(ExpectedConditions.visibilityOfElementLocated(warningMessage));
+        String warning = getDriver().findElement(warningMessage).getAttribute("textContent");
+        if (warning.contains(validMessage)){
+            report(reportTextPass);
+        } else{
+            report(reportTextFail,title);
+        }
+        elementClick(closeWarningMessage);
+        if (navigate){
+            elementClick(allPartners);
+        }
+        return warning;
+    }
+
+    public void refreshPage(){
+        getDriver().navigate().refresh();
+        wait.until(webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }
 
 }
