@@ -80,4 +80,9 @@ public class TestData {
     public String getId(){
         return id;
     }
+
+    private String relatedPartnerName;
+    public String getRelatedPartnerName(){
+        return relatedPartnerName;
+    }
 }

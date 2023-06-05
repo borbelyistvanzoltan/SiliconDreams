@@ -9,8 +9,4 @@ Feature: Partners
     Then Create new partner by clone
     Then Check the cloned partner
     Then Delete the cloned partner
-    Then Delete partner - get the text from message - successful or unsuccessful
     Then Delete partner
-    Then Delete partner - get the text from message - successful or unsuccessful
-    Then Check the cloned partner delete
-    Then Check the delete

@@ -33,7 +33,7 @@ public class GeneralSteps extends UIActions {
         bench = null;
     }
 
-    @AfterAll
+    @After
     public static void checkDeletedPartners(){
         setUp();
         pages.getPartnersPagePOM().navigateToPartnersModule();
@@ -44,6 +44,8 @@ public class GeneralSteps extends UIActions {
         pages.getPartnersPagePOM().filterByName(testData.getPrivatePartnerName());
         pages.getPartnersPagePOM().partnerDeleteCheck();
         pages.getPartnersPagePOM().filterByName(testData.getSupplier());
+        pages.getPartnersPagePOM().partnerDeleteCheck();
+        pages.getPartnersPagePOM().filterByName(testData.getRelatedPartnerName());
         pages.getPartnersPagePOM().partnerDeleteCheck();
     }
 }

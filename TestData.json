@@ -11,5 +11,6 @@
 	"clonePartnerId" : "TC06",
 	"partner" : "TESZT-PARTNER",
 	"comment": "Teszt megjegyzés",
-	"supplier" : "TESZT KFT"
+	"supplier" : "TESZT KFT",
+	"relatedPartnerName" : "Teszt Kapcsolódó Partner"
 }
