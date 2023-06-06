@@ -12,5 +12,6 @@ Feature: Product
     Then Clone the product from actions menu with Title: "ProzendaTermek1Cloned", Product code: "TC10"
     Then navigate back to All Products page
     Then filter "ProzendaTermek1Cloned" on "TITLE" column filter
-    Then check "ProzendaTermek1" product is exist: "true"
+    Then check "ProzendaTermek1Cloned" product is exist: "true"
+    Then filter "ProzendaTermek1" on "TITLE" column filter
     Then delete created products
