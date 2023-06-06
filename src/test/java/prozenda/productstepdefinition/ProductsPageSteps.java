@@ -31,6 +31,12 @@ public class ProductsPageSteps {
         pages.getProductsPagePOM().editProductFromActions();
     }
 
+    @Then("Clone the product from actions menu with Title: {string}, Product code: {string}")
+    public void cloneProductFromActionMenu(String productName, String productCode) throws InterruptedException {
+        pages.getProductsPagePOM().cloneProductFromActions(productName, productCode);
+        pages.getNewProductPagePOM().saveProduct();
+    }
+
     @Then("Navigate to attach tab")
     public void navigateToAttachTab() {
         pages.getProductsPagePOM().navigateToAttachTab();

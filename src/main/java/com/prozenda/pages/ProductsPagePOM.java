@@ -9,6 +9,9 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import static com.prozenda.selectors.NewProductPage.productCodeInput;
+import static com.prozenda.selectors.NewProductPage.productTitleInput;
+import static com.prozenda.selectors.PartnersPage.partnerName;
 import static com.prozenda.selectors.ProductsPage.*;
 import static com.prozenda.selectors.ProductsPage.newProductButton;
 import static com.prozenda.utils.GetProperties.getProductFilePath;
@@ -99,6 +102,13 @@ public class ProductsPagePOM extends AbstractPage {
     public void editProductFromActions(){
         elementClick(foundNameActions);
         elementClick(editProductButton);
+    }
+
+    public void cloneProductFromActions(String productName, String productCode){
+        elementClick(foundNameActions);
+        elementClick(cloneProductButton);
+        setText(productTitleInput, productName, true);
+        setText(productCodeInput, productCode, true);
     }
 
     public void navigateToAttachTab() {
